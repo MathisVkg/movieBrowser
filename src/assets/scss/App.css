@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  background-color: #1a1919;
+  color: white;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+/*# sourceMappingURL=App.css.map */
