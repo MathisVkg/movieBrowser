@@ -1,12 +1,17 @@
 
-body {
-    margin: 0;
-    background-color: #1a1919;
-    color: white;
-}
 
-.loading {
-    display: flex;
-    align-items: center;
-    color: white;
+
+
+@media only screen and (max-width: 500px) {
+    body {
+        margin: 0;
+        background-color: #1a1919;
+        color: white;
+    }
+    
+    .loading {
+        display: flex;
+        align-items: center;
+        color: white;
+    }
 }
