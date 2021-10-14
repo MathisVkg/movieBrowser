@@ -33,17 +33,21 @@ const Home = (props) => {
                     {
                         Object.entries(stockMovies).map((key, value) => {
                             return (
-                                <div className="card"
-                                style=
-                                {{
-                                    backgroundImage: `url('${IMGPATH + key[1].poster_path}')`
-                                }}
-                                >
-                                    <div className="blurRate"></div>
-                                    <div className="blurName"></div>
-                                    <p className="rate">{ key[1].vote_average }</p>
-                                    <p className="title">{ key[1].title }</p>
-                                </div>
+                                <a href="/detail">
+                                    <div className="card"
+                                    style=
+                                    {{
+                                        backgroundImage: `url('${IMGPATH + key[1].poster_path}')`
+                                    }}
+                                    >
+                                    
+
+                                        <div className="blurRate"></div>
+                                        <div className="blurName"></div>
+                                        <p className="rate">{ key[1].vote_average }</p>
+                                        <p className="title">{ key[1].title }</p>
+                                    </div>
+                                </a>
                             )
                         })
                     }

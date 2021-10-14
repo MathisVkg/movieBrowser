@@ -18,7 +18,7 @@
     }
     .containerSpotlight {
         width: 330px;
-        height: 250px;
+        height: 200px;
         margin: 0 auto;
         border-radius: 20px;
         background-size: cover;
@@ -37,7 +37,7 @@
             width: 313px;
             height: 60px;
             position: absolute;
-            top: 265px;
+            top: 215px;
             left: 30px;
         }
         .spotlightGroup {
@@ -45,7 +45,7 @@
             align-items: center;
             position: relative;
             left: 30px;
-            top: 175px;        
+            top: 125px;        
             .playIcon {
                 margin-top: 6px;
                 font-size: 2em;
@@ -77,14 +77,22 @@
     .movieList {
         display: flex;
         flex-direction: column;
+        // flex-wrap: nowrap;
+        // overflow: hidden;
+        // margin: 10px auto;
         align-items: center;
-        overflow: hidden;
+        a {
+            text-decoration: none;
+            color: white;
+        }
         .card {
+            display: inline-block;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: top;
-            width: 300px;
-            height: 300px;
+            border-radius: 20px;
+            width: 200px;
+            height: 330px;
             padding: 10px;
             margin: 10px;
             color: black;
