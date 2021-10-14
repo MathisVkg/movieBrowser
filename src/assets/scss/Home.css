@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap");
+@media only screen and (max-width: 500px) {
+  body {
+    margin: 0;
+    background-color: #1a1919;
+    color: white;
+    font-family: 'Lato', sans-serif;
+  }
+  .pageTitle {
+    margin-left: 15px;
+    font-size: 2.2em;
+    color: #f57e2f;
+  }
+  .titleColor {
+    color: white;
+  }
+  .containerSpotlight {
+    width: 350px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+  .containerSpotlight .blur {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 32px 0 #1f26875e;
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid #ffffff2e;
+    width: 83%;
+    height: 60px;
+    position: absolute;
+    top: 288px;
+    left: 30px;
+  }
+  .containerSpotlight .spotlightGroup {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 30px;
+    top: 175px;
+  }
+  .containerSpotlight .spotlightGroup .playIcon {
+    font-size: 2em;
+    color: #f57e2f;
+  }
+  .containerSpotlight .spotlightGroup .textDiv {
+    margin-left: 20px;
+  }
+  .containerSpotlight .spotlightGroup .textDiv p {
+    margin-bottom: 0;
+    color: #5a5a5a;
+    font-weight: 400;
+    font-size: 0.9em;
+    text-shadow: 2px 1px 6px #f3f3f3;
+  }
+  .containerSpotlight .spotlightGroup .textDiv h2 {
+    width: 130%;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-top: 0;
+    text-shadow: 3px 3px 6px #1a1919;
+  }
+}
+/*# sourceMappingURL=Home.css.map */
