@@ -3,36 +3,41 @@
 @media only screen and (max-width: 500px) {
     body {
         margin: 0;
-        background-color: #1a1919;
+        background-color: #161624;
         color: white;
         font-family: 'Lato', sans-serif;
     }
     .pageTitle {
-        margin-left: 15px;
-        font-size: 2.2em;
+        margin-top: 25px;
+        margin-left: 25px;
+        font-size: 2em;
         color: #f57e2f;
     }
     .titleColor {
         color: white;
     }
     .containerSpotlight {
-        width: 350px;
+        width: 330px;
         height: 250px;
         margin: 0 auto;
         border-radius: 20px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top;
+        a {
+            text-decoration: none;
+            color: white;
+        }
         .blur {
-            background: hsla(0, 0%, 100%, 0.7);
+            background: hsla(0, 0%, 100%, 0.4);
             box-shadow: 0 8px 32px 0 #1f26875e;
             backdrop-filter: blur(8px);
             border-radius: 12px;
             border: 1px solid #ffffff2e;
-            width: 83%;
+            width: 313px;
             height: 60px;
             position: absolute;
-            top: 288px;
+            top: 265px;
             left: 30px;
         }
         .spotlightGroup {
@@ -42,6 +47,7 @@
             left: 30px;
             top: 175px;        
             .playIcon {
+                margin-top: 6px;
                 font-size: 2em;
                 color: #f57e2f;
             }
@@ -63,5 +69,9 @@
                 }
             }
         }
+    }
+    .subTitle {
+        margin-top: 35px;
+        margin-left: 25px;
     }
 }

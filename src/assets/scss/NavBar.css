@@ -1,1 +1,18 @@
-/* No CSS *//*# sourceMappingURL=NavBar.css.map */
+nav {
+  position: fixed;
+  top: 745px;
+  background-color: #161624;
+  padding: 20px 0;
+}
+
+nav button {
+  background-color: unset;
+  border: none;
+}
+
+nav a {
+  margin: 0 50px;
+  color: white;
+  font-size: 1.65em;
+}
+/*# sourceMappingURL=NavBar.css.map */

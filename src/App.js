@@ -56,7 +56,7 @@ export default function App() {
           <Discover />
         </Route>
         <Route path='/'>
-            <Home movies={ moviesTrending }/>
+          <Home movies={ moviesTrending }/>
         </Route>
       </Switch>
 
