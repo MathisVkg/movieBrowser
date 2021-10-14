@@ -1,14 +1,13 @@
 import '../assets/scss/Home.css';
 import '../assets/scss/NavBar.css';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
-import CardHome from './CardHome';
 
 const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
 const Home = (props) => {
     if(props.movies.length !== 0) { 
         let randomMovie = parseInt(Math.floor(Math.random() * 20));
         let stockMovies = { ...props.movies.results };
-        console.log(stockMovies[0].title);
+        console.log(stockMovies);
         return (
             <main>
                 <h1 className="pageTitle">Movie<span className="titleColor">Browser</span></h1>
@@ -31,7 +30,23 @@ const Home = (props) => {
                 </div>
                 <h2 className="subTitle">Trending</h2>
                 <div className="movieList">
-                    <CardHome stockMovies={ stockMovies } />
+                    {
+                        Object.entries(stockMovies).map((key, value) => {
+                            return (
+                                <div className="card"
+                                style=
+                                {{
+                                    backgroundImage: `url('${IMGPATH + key[1].poster_path}')`
+                                }}
+                                >
+                                    <div className="blurRate"></div>
+                                    <div className="blurName"></div>
+                                    <p className="rate">{ key[1].vote_average }</p>
+                                    <p className="title">{ key[1].title }</p>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </main>
         )

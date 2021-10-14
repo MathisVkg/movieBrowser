@@ -34,7 +34,6 @@ export default function App() {
       const response = await fetch(APIURLTRENDING);
       const moviesTrending= await response.json();
       setMoviesTrending(moviesTrending);
-      console.log('2',moviesTrending);
     } catch (error) {
       console.log(error);
     }

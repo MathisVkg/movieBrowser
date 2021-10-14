@@ -73,5 +73,21 @@
     margin-top: 35px;
     margin-left: 25px;
   }
+  .movieList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+  .movieList .card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    margin: 10px;
+    color: black;
+  }
 }
 /*# sourceMappingURL=Home.css.map */
