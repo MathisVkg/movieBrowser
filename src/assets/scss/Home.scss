@@ -28,26 +28,22 @@
             text-decoration: none;
             color: white;
         }
-        .blur {
-            background: hsla(0, 0%, 100%, 0.4);
-            box-shadow: 0 8px 32px 0 #1f26875e;
-            backdrop-filter: blur(8px);
-            border-radius: 12px;
-            border: 1px solid #ffffff2e;
-            width: 313px;
-            height: 60px;
-            position: absolute;
-            top: 215px;
-            left: 30px;
-        }
         .spotlightGroup {
             display: flex;
             align-items: center;
             position: relative;
-            left: 30px;
+            background: hsla(0, 0%, 48%, 0.6);
+            box-shadow: 0 8px 32px 0 #1f26875e;
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            border: 1px solid #ffffff2e;
+            width: 300px;
+            height: 60px;
+            left: 12px;
             top: 125px;        
             .playIcon {
                 margin-top: 6px;
+                margin-left: 10px;
                 font-size: 2em;
                 color: #f57e2f;
             }
@@ -55,7 +51,7 @@
                 margin-left: 20px;
                 p {
                     margin-bottom: 0;
-                    color: #5a5a5a;
+                    color: #2b2929;
                     font-weight: 400;
                     font-size: 0.9em;
                     text-shadow: 2px 1px 6px #f3f3f3;
@@ -83,7 +79,6 @@
         align-items: center;
         a {
             text-decoration: none;
-            color: white;
         }
         .card {
             display: inline-block;
@@ -91,11 +86,47 @@
             background-repeat: no-repeat;
             background-position: top;
             border-radius: 20px;
-            width: 200px;
+            width: 250px;
             height: 330px;
             padding: 10px;
             margin: 10px;
-            color: black;
+            .rateGroup {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: hsla(0, 0%, 48%, 0.6);
+                box-shadow: 0 8px 32px 0 #1f26875e;
+                backdrop-filter: blur(8px);
+                border-radius: 12px;
+                border: 1px solid #ffffff2e;
+                width: 65px;
+                height: 50px;
+                top: 15px;
+                left: 180px;
+                .rate {
+                color: white;
+                font-size: 1.2em;
+            }
+            .rateIcon {
+                color: #F3BE00;
+                font-size: 1.4em;
+            }
+            }
+            .title {
+                text-align: center;
+                position: relative;
+                color: #ffffff;
+                background: hsla(0, 0%, 100%, 0.4);
+                box-shadow: 0 8px 32px 0 #1f26875e;
+                backdrop-filter: blur(8px);
+                border-radius: 12px;
+                border: 1px solid #ffffff2e;
+                width: 245px;
+                padding: 20px 0;
+                top: 190px;
+                text-shadow: 2px 2px 6px #161624;
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 import '../assets/scss/Home.css';
 import '../assets/scss/NavBar.css';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
+import { AiFillStar } from 'react-icons/ai';
 
 const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
 const Home = (props) => {
@@ -18,7 +19,6 @@ const Home = (props) => {
                 }}
                 >
                     <a href="/detail">
-                        <div className="blur"></div>
                         <div className="spotlightGroup">
                             <span className="playIcon"><BsFillPlayCircleFill /></span>
                             <div className="textDiv">
@@ -40,11 +40,10 @@ const Home = (props) => {
                                         backgroundImage: `url('${IMGPATH + key[1].poster_path}')`
                                     }}
                                     >
-                                    
-
-                                        <div className="blurRate"></div>
-                                        <div className="blurName"></div>
-                                        <p className="rate">{ key[1].vote_average }</p>
+                                        <div className="rateGroup">
+                                            <span className="rateIcon"><AiFillStar /></span>
+                                            <p className="rate">{ key[1].vote_average }</p>
+                                        </div>
                                         <p className="title">{ key[1].title }</p>
                                     </div>
                                 </a>
