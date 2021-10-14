@@ -24,6 +24,9 @@
     background-repeat: no-repeat;
     background-position: top;
   }
+  .containerSpotlight:hover {
+    transform: translateX(-8px);
+  }
   .containerSpotlight a {
     text-decoration: none;
     color: white;
@@ -71,8 +74,9 @@
   }
   .movieList {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    margin-left: 15px;
   }
   .movieList a {
     text-decoration: none;
@@ -105,7 +109,7 @@
   }
   .movieList .card .rateGroup .rate {
     color: white;
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
   .movieList .card .rateGroup .rateIcon {
     color: #F3BE00;
@@ -115,7 +119,7 @@
     text-align: center;
     position: relative;
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(122, 122, 122, 0.6);
     box-shadow: 0 8px 32px 0 #1f26875e;
     backdrop-filter: blur(8px);
     border-radius: 12px;
