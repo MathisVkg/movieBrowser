@@ -7,9 +7,9 @@ import User from './components/User';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router , Route, Switch } from "react-router-dom";
 
+//59d266ad02d1642bf64bc31fb887924c
 const APIURL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=59d266ad02d1642bf64bc31fb887924c&page=';
 const APIURLTRENDING = 'https://api.themoviedb.org/3/trending/movie/day?api_key=59d266ad02d1642bf64bc31fb887924c';
-// const NAMESEARCH = Harry potter;
 // const SEARCHMOVIE = 'https://api.themoviedb.org/3/search/movie?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US&query=' + NAMESEARCH + '&page=1&include_adult=false';
 let PAGENUMBER = 1;
 
@@ -52,7 +52,7 @@ export default function App() {
       <NavBar />
       <Switch>
         <Route path='/detail'>
-          <Detail />
+          <Detail movies={ movies }/>
         </Route>
         <Route path='/user'>
           <User />

@@ -25,7 +25,7 @@ const Home = (props) => {
     function RandomCard() {
         let randomMovie = parseInt(Math.floor(Math.random() * 20));
         return (
-            <div>
+            <>
             <h1 className="pageTitle">Movie<span className="titleColor">Browser</span></h1>
             <div className="containerSpotlight"
             style=
@@ -43,13 +43,13 @@ const Home = (props) => {
                     </div>
                 </a>
             </div> 
-            </div>
+            </>
         );
     }
 
     function TrandingCard() {
         return (
-            <div>
+            <>
             <h2 className="subTitle">Trending</h2>
             <Carousel 
                 itemsToShow={1} 
@@ -79,7 +79,7 @@ const Home = (props) => {
                 })
             }
             </Carousel>
-            </div>
+            </>
         );
     }
 }

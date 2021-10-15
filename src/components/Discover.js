@@ -30,37 +30,37 @@ const Discover = (props) => {
 
     function Search() {
         return (
-            <div>
+            <>
             <h1 className="pageTitle">Movie<span className="titleColor">Browser</span></h1>
             <div className="searchBar">
                 <span className="searchIcon"><FaSearch /></span>
                 <input type="text" placeholder="Sherlock Holmes"></input>
             </div>
-            </div>
+            </>
         );
     }
 
     function Genre() {
         return (
-            <div>
+            <>
             <nav className="genre">
                 <a className="genreLink" href="#">Fantasy</a>
                 <a className="genreLink" href="#">Horror</a>
                 <a className="genreLink" href="#">Science Fiction</a>
                 <a className="genreLink" href="#">Documentary</a>
             </nav>
-            </div>
+            </>
         );
     }
 
     function AllMovieCard() {
         return(
-            <div>
+            <>
             <div className="allMovie">
                 {
                     Object.entries(stockMovies).map((key, value) => {
                         return (
-                            <a href="/detail">
+                            <a href="/detail" value={ key[1].id } onclick={ console.log('check') }>
                                 <div className="cardDiscover">
                                     <img src={IMGPATH + key[1].poster_path} alt={ IMGPATH + key[1].title }/>
                                     <p className="titleDiscover">
@@ -73,7 +73,7 @@ const Discover = (props) => {
                     })
                 }
             </div>
-            </div>
+            </>
         );
     }
 }
