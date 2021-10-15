@@ -3,7 +3,7 @@
 @media only screen and (max-width: 500px) {
     body {
         margin: 0;
-        background-color: #161624;
+        background-color: #15141F;
         color: white;
         font-family: 'Lato', sans-serif;
     }
@@ -17,15 +17,17 @@
         color: white;
     }
     .containerSpotlight {
-        width: 330px;
+        width: 340px;
         height: 200px;
         margin: 0 auto;
         border-radius: 20px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top;
+        transition: 0.4s ease-in-out;
+        position: relative;
         &:hover {
-            transform: translateX(-8px);
+            transform: translateY(-8px);
         }
         a {
             text-decoration: none;
@@ -34,16 +36,17 @@
         .spotlightGroup {
             display: flex;
             align-items: center;
-            position: relative;
+            position: absolute;
             background: hsla(0, 0%, 48%, 0.6);
             box-shadow: 0 8px 32px 0 #1f26875e;
             backdrop-filter: blur(8px);
             border-radius: 12px;
             border: 1px solid #ffffff2e;
-            width: 300px;
+            // width: 330px;
             height: 60px;
-            left: 12px;
-            top: 125px;        
+            left: 20px;
+            bottom: 20px; 
+            padding-right: 15px;
             .playIcon {
                 margin-top: 6px;
                 margin-left: 10px;
@@ -74,12 +77,7 @@
         margin-left: 25px;
     }
     .movieList {
-        display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        flex-wrap: nowrap;
-        overflow: hidden;
-        margin-left: 15px;
+        margin-bottom: 70px;
         a {
             text-decoration: none;
         }
@@ -90,7 +88,7 @@
             background-position: top;
             border-radius: 20px;
             width: 250px;
-            height: 330px;
+            height: 380px;
             padding: 10px;
             margin: 10px;
             .rateGroup {
@@ -112,6 +110,7 @@
                 font-size: 1.1em;
             }
             .rateIcon {
+                margin-top: 6px;
                 color: #F3BE00;
                 font-size: 1.4em;
             }
@@ -127,7 +126,7 @@
                 border: 1px solid #ffffff2e;
                 width: 245px;
                 padding: 20px 0;
-                top: 190px;
+                top: 245px;
                 text-shadow: 2px 2px 6px #161624;
             }
         }

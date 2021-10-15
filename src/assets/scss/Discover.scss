@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
+
+@media only screen and (max-width: 500px) {
+    body {
+        margin: 0;
+        background-color: #15141F;
+        color: white;
+        font-family: 'Lato', sans-serif;
+    }
+    .pageTitle {
+        margin-top: 25px;
+        margin-left: 25px;
+        font-size: 2em;
+        color: #f57e2f;
+    }
+    .titleColor {
+        color: white;
+    }
+    .searchBar {
+        margin: 25px auto;
+        background-color: #211F30;
+        padding: 15px;
+        border-radius: 20px;
+        width: 300px;
+        .searchIcon {
+            margin-left: 6px;
+            font-size: 1.1em;
+        }
+        input {
+            border: none;
+            background-color: unset;
+            margin-left: 15px;
+            color: #BBBBBB;
+        }
+    }
+    .genre {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+        .genreLink {
+            text-decoration: none;
+            color: white;
+            margin: 0 6px;
+            margin-bottom: 10px;
+            transition: 0.4s ease-in-out;
+            &:hover {
+                color: #f57e2f;
+            }
+        }
+        .genreLink:after {
+            display: block;
+            content: '';
+            width: 0px;
+            height: 2px;
+            margin-top: 2px;
+            background: transparent;
+            transition: width 0.5s ease, background-color 0.5s ease;
+        }
+        .genreLink:hover:after {
+            width: 100%;
+            background: #f57e2f;
+        }
+    }
+    .allMovie {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        .cardDiscover {
+            margin: 10px 12px;
+            width: 150px;
+            transition: 0.4s ease-in-out;
+            &:hover {
+                transform: translateY(-8px);
+                .titleDiscover {
+                    color: #f57e2f;
+                }
+            }
+            img {
+                width: 150px;
+                height: 220px;
+                border-radius: 20px;
+                margin-bottom: 0;
+            }
+            .titleDiscover {
+                transition: 0.4s ease-in-out;
+                margin-top: 5px;
+            }
+            .dateColor{
+                margin-left: 5px;
+                color: #BCBCBC;
+            }
+        }
+    }
+}

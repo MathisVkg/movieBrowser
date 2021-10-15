@@ -7,7 +7,7 @@ const NavBar = () => {
 
     return (
         <header>
-            <nav>
+            <nav className="menu">
                 <Link to='./home'>
                     <span id="userBtn"><AiFillHome /></span>
                 </Link>

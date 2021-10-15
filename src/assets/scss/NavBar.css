@@ -1,4 +1,4 @@
-nav {
+.menu {
   z-index: 1;
   display: flex;
   justify-content: space-evenly;
@@ -9,7 +9,7 @@ nav {
   padding: 15px 0;
 }
 
-nav a {
+.menu a {
   color: white;
   font-size: 1.5em;
 }
