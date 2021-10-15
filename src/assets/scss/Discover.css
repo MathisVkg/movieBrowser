@@ -75,7 +75,7 @@
     transition: 0.4s ease-in-out;
   }
   .allMovie .cardDiscover:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
   }
   .allMovie .cardDiscover:hover .titleDiscover {
     color: #f57e2f;

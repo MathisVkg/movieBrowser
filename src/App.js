@@ -1,9 +1,9 @@
-// import './assets/scss/App.css';
-// import Movies from './components/Movies';
+
 import NavBar from './components/NavBar';
 import Detail from './components/Detail';
 import Discover from './components/Discover';
 import Home from './components/Home';
+import User from './components/User';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router , Route, Switch } from "react-router-dom";
 
@@ -11,9 +11,10 @@ const APIURL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.d
 const APIURLTRENDING = 'https://api.themoviedb.org/3/trending/movie/day?api_key=59d266ad02d1642bf64bc31fb887924c';
 // const NAMESEARCH = Harry potter;
 // const SEARCHMOVIE = 'https://api.themoviedb.org/3/search/movie?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US&query=' + NAMESEARCH + '&page=1&include_adult=false';
-const PAGENUMBER = 1;
+let PAGENUMBER = 1;
 
 export default function App() {
+
 
   const [movies, setMovies] = useState([]);
   const fetchMovies = async () =>  {
@@ -28,6 +29,7 @@ export default function App() {
   useEffect(() => {
     fetchMovies();
   }, []);
+
 
   const [moviesTrending, setMoviesTrending] = useState([]);
   const fetchMoviesTrending = async () =>  {
@@ -52,11 +54,14 @@ export default function App() {
         <Route path='/detail'>
           <Detail />
         </Route>
+        <Route path='/user'>
+          <User />
+        </Route>
         <Route path='/discover'>
           <Discover movies={ movies }/>
         </Route>
         <Route path='/'>
-          <Home movies={ moviesTrending }/>
+          <Home movies={ moviesTrending } />
         </Route>
       </Switch>
 

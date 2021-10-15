@@ -1,22 +1,24 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AiFillHome } from 'react-icons/ai';
 import { FaSearch } from 'react-icons/fa';
 import { FaUserAlt } from 'react-icons/fa';
+import { IconContext } from 'react-icons/lib';
 
 const NavBar = () => {
+    let icons = { className: 'icons' }
 
     return (
         <header>
             <nav className="menu">
-                <Link to='./home'>
-                    <span id="userBtn"><AiFillHome /></span>
-                </Link>
-                <Link to='./discover'>
-                    <span id="userBtn"><FaSearch /></span>
-                </Link>
-                <Link to='./'>
-                    <span id="userBtn"><FaUserAlt /></span>
-                </Link>
+                <NavLink to='./home'>
+                    <IconContext.Provider value={ icons }><AiFillHome /></IconContext.Provider>
+                </NavLink>
+                <NavLink to='./discover'>
+                    <IconContext.Provider value={ icons }><FaSearch /></IconContext.Provider>
+                </NavLink>
+                <NavLink to='./user'>
+                    <IconContext.Provider value={ icons }><FaUserAlt /></IconContext.Provider>
+                </NavLink>
             </nav>
         </header>
     )

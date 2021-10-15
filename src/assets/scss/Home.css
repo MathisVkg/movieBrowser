@@ -75,7 +75,7 @@
     margin-left: 25px;
   }
   .movieList {
-    margin-bottom: 70px;
+    margin-bottom: 65px;
   }
   .movieList a {
     text-decoration: none;
@@ -86,7 +86,7 @@
     background-repeat: no-repeat;
     background-position: top;
     border-radius: 20px;
-    width: 250px;
+    width: 270px;
     height: 380px;
     padding: 10px;
     margin: 10px;
@@ -103,8 +103,8 @@
     border: 1px solid #ffffff2e;
     width: 65px;
     height: 50px;
-    top: 15px;
-    left: 180px;
+    top: 10px;
+    left: 200px;
   }
   .movieList .card .rateGroup .rate {
     color: white;
