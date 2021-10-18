@@ -3,7 +3,6 @@ import '../assets/scss/Discover.css';
 import '../assets/scss/Base.css';
 import Loader from '../components/Loader';
 import React, { useEffect, useState } from 'react';
-import Carousel from 'react-elastic-carousel';
 import NavBar from './NavBar';
 
 const APIGENRE = 'https://api.themoviedb.org/3/genre/movie/list?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US';
