@@ -3,7 +3,7 @@ import Detail from './components/Detail';
 import Discover from './components/Discover';
 import Home from './components/Home';
 import User from './components/User';
-import React, { } from 'react';
+import React from 'react';
 import { BrowserRouter as Router , Route, Switch } from "react-router-dom";
 
 //59d266ad02d1642bf64bc31fb887924c
@@ -13,13 +13,12 @@ import { BrowserRouter as Router , Route, Switch } from "react-router-dom";
 
 export default function App() {
   
-  // const [idTarget, SetIdTarget] = useState();
   
   return (
     <Router>
 
       <Switch>
-        <Route path='/detail'>
+        <Route path='/detail/:movieId'>
           <Detail />
         </Route>
         <Route path='/user'>
@@ -29,9 +28,7 @@ export default function App() {
           <Discover />
         </Route>
         <Route path='/'>
-          <Home 
-          // idTarget = { idTarget } 
-          />
+          <Home />
         </Route>
       </Switch>
 

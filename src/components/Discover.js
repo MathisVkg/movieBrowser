@@ -4,6 +4,7 @@ import '../assets/scss/Base.css';
 import Loader from '../components/Loader';
 import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
+import { NavLink } from 'react-router-dom';
 
 const APIGENRE = 'https://api.themoviedb.org/3/genre/movie/list?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US';
 
@@ -18,13 +19,15 @@ const Discover = () => {
     const BASEURL = 'https://api.themoviedb.org/3/discover/movie?';
     const [movies, setMovies] = useState([]);
     const [moviesGenre, setMoviesGenre] = useState([]);
+    const [IsTrue, setIsTrue] = useState(false);
 
 
     const fetchMovies = async () =>  {
       try {
         const response = await fetch(BASEURL + APIKEY + PARAMS + genre);
-        const movies = await response.json();
-        setMovies(movies);
+        const moviesData = await response.json();
+        // setMovies(moviesData.results);
+        setMovies(prevState => [...prevState, ...moviesData.results]);
       } catch (error) {
         console.log(error);
       }
@@ -37,7 +40,7 @@ const Discover = () => {
         try {
         const response = await fetch(APIGENRE);
         const moviesGenre = await response.json();
-        setMoviesGenre(moviesGenre);
+        setMoviesGenre(moviesGenre.genres);
         } catch (error) {
         console.log(error);
         }
@@ -46,10 +49,20 @@ const Discover = () => {
         fetchMoviesGenre();
     }, []);
 
-    let stockMoviesGenre = {...moviesGenre.genres};
-    let stockMovies = {...movies.results};
+    window.onscroll = function(ev) {
+        if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
+            setIsTrue(true);
+            if(IsTrue == true) {
+                setPage( prevState => (prevState + 1));
+                console.log('setPage: ', page);
+                fetchMovies();
+                setIsTrue(false);
+            }
+        }
+    };
 
-    if(stockMovies.length !== 0) { 
+
+    if(movies.length !== 0) { 
         return (
             <main>
                 <NavBar />
@@ -81,15 +94,15 @@ const Discover = () => {
             <>
             <nav className="movieGenres" >
             {
-                Object.entries(stockMoviesGenre).map((genre) => {
+                moviesGenre.map((genre) => {
                     return (
                         <p 
                         className="genreLink" 
-                        id= { genre[1].id }
+                        id= { genre.id }
                         onClick= { (e) => changeGenre(e) }
-                        key={ genre[1].id }
+                        key={ genre.id }
                         >
-                        { genre[1].name } 
+                        { genre.name } 
                         </p>
                     )
                 })
@@ -111,18 +124,18 @@ const Discover = () => {
             <>
             <div className="allMovie">
                 {
-                    Object.entries(stockMovies).map((movie) => {
+                    movies.map((movie) => {
 
                         return (
-                            <a href="/detail" id={ movie[1].id } key={ movie[1].id }>
+                            <NavLink to={`/detail/${ movie.id }`} id={ movie.id }>
                                 <div className="cardDiscover">
-                                    <div className="widthImg"><img src={IMGPATH + movie[1].poster_path} alt={ IMGPATH + movie[1].title } /></div>
+                                    <div className="widthImg"><img src={IMGPATH + movie.poster_path} alt={ IMGPATH + movie.title } /></div>
                                     <p className="titleDiscover">
-                                        { movie[1].title }
-                                        <span className="dateColor">({ movie[1].release_date.substring(0,4) })</span>
+                                        { movie.title }
+                                        <span className="dateColor">({ movie.release_date.substring(0,4) })</span>
                                     </p>
                                 </div>
-                            </a>
+                            </NavLink>
                         )
                     })
                 }

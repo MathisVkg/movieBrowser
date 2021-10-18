@@ -6,9 +6,10 @@ import Carousel from 'react-elastic-carousel';
 import Loader from '../components/Loader';
 import NavBar from './NavBar';
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Home = (props) => {
-    // const [idMovie, setIdMovie] = useState();
+
     const APIURLTRENDING = 'https://api.themoviedb.org/3/trending/movie/day?api_key=59d266ad02d1642bf64bc31fb887924c';
     const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
     const [moviesTrending, setMoviesTrending] = useState([]);
@@ -17,7 +18,7 @@ const Home = (props) => {
         try {
         const response = await fetch(APIURLTRENDING);
         const moviesTrending = await response.json();
-        setMoviesTrending(moviesTrending);
+        setMoviesTrending(moviesTrending.results);
         } catch (error) {
         console.log(error);
         }
@@ -27,14 +28,12 @@ const Home = (props) => {
     }, []);
 
 
-    let stockMovies = {...moviesTrending.results};
-    console.log('stockMovies: ', stockMovies[1]);
-    if (stockMovies.length !== 0) {
+    if (moviesTrending.length !== 0) {
         return (
             <main>
                 <h1 className="pageTitle">Movie<span className="titleColor">Browser</span></h1>
                 <NavBar />
-                {/* <RandomCard /> */}
+                <RandomCard />
                 <TrandingCard />
             </main>
         )
@@ -46,26 +45,26 @@ const Home = (props) => {
 
 
     function RandomCard() {
-        let randomMovie = Math.floor(Math.random() * 19);
+        let randomMovie = Math.floor(Math.random() * 20);
         return (
             <>
-                <a href="/detail" id={ stockMovies[randomMovie].id }
-                // onClick= { (e) => IdMovie(e) }
-                >
-                    <div className="containerSpotlight" style=
+                <NavLink to={`/detail/${ moviesTrending[randomMovie].id }`}>
+                    <div className="containerSpotlight"
+                    id={ moviesTrending[randomMovie].id }
+                    style=
                         {{
-                            backgroundImage: `url('${ IMGPATH + stockMovies[randomMovie].poster_path }')`
+                            backgroundImage: `url('${ IMGPATH + moviesTrending[randomMovie].poster_path }')`
                         }}
                     >
                         <div className="spotlightGroup">
                             <span className="playIcon"><BsFillPlayCircleFill /></span>
                             <div className="textDiv">
                                 <p>Movie Spotlight</p>
-                                <h2>{ stockMovies[randomMovie].title.substring(0, 27) }</h2>
+                                <h2>{ moviesTrending[randomMovie].title.substring(0, 27) }</h2>
                             </div>
                         </div>
                     </div>
-                </a>
+                </NavLink>
             </>
         );
     }
@@ -82,22 +81,24 @@ const Home = (props) => {
                     // itemPadding={[0, 155]}
                     className="movieList" >
                     {
-                        Object.entries(stockMovies).map((movie, value) => {
+                        moviesTrending.map((movie, value) => {
                             return (
-                                <a href="/detail" id={movie[1].id} key={movie[1].id}>
+                                <NavLink to={`/detail/${ movie.id }`} key={movie.id}>
                                     <div className="card"
+                                        onClick= { (e) => IdMovie(e) }
+                                        id={movie.id}
                                         style=
                                         {{
-                                            backgroundImage: `url('${IMGPATH + movie[1].poster_path}')`
+                                            backgroundImage: `url('${IMGPATH + movie.poster_path}')`
                                         }}
                                     >
                                         <div className="rateGroup">
                                             <span className="rateIcon"><AiFillStar /></span>
-                                            <p className="rate">{movie[1].vote_average}</p>
+                                            <p className="rate">{movie.vote_average}</p>
                                         </div>
-                                        <p className="title">{movie[1].title}</p>
+                                        <p className="title">{movie.title}</p>
                                     </div>
-                                </a>
+                                </NavLink>
                             )
                         })
                     }
@@ -106,12 +107,9 @@ const Home = (props) => {
         );
     }
 
-    // function IdMovie(e) {
-    //     e.preventDefault();
-    //     e.target.style.color = '#f57e2f';
-    //     setIdMovie(e.target.id);
-    //     console.log('IdMovie: ', idMovie);
-    // }
+    function IdMovie(e) {
+        console.log('e.target.id: ', e.target.id);
+    }
 }
 
 export default Home

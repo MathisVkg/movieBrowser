@@ -6,9 +6,13 @@ import { AiFillStar } from 'react-icons/ai';
 import React, { useState } from 'react';
 // import Loader from '../components/Loader';
 import '../assets/scss/Detail.css';
+import { useParams } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 // const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
-const Detail = (props) => {
+const Detail = () => {
+    const {movieId} = useParams();
+    console.log('movieId: ', movieId);
     let icons = { className: 'playBtn' };
     let iconsBack = { className: 'backBtn' };
     const[readMore, setReadMore] = useState(false);
@@ -38,8 +42,8 @@ const Detail = (props) => {
             //     backgroundImage: `url('${IMGPATH + stockMovies[0].poster_path}')`
             // }}
             >
-                <a href="#"><IconContext.Provider value={ icons }><BsFillPlayFill /></IconContext.Provider></a>
-                <a href="./home"><IconContext.Provider value={ iconsBack }><IoChevronBackOutline /></IconContext.Provider></a>
+                <NavLink to="#"><IconContext.Provider value={ icons }><BsFillPlayFill /></IconContext.Provider></NavLink>
+                <NavLink to="/home"><IconContext.Provider value={ iconsBack }><IoChevronBackOutline /></IconContext.Provider></NavLink>
             </div>
             </>
         );
