@@ -2,21 +2,57 @@ import { FaSearch } from 'react-icons/fa';
 import '../assets/scss/Discover.css';
 import '../assets/scss/Base.css';
 import Loader from '../components/Loader';
+import React, { useEffect, useState } from 'react';
+import Carousel from 'react-elastic-carousel';
+import NavBar from './NavBar';
 
-const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
-const Discover = (props) => {
+const APIGENRE = 'https://api.themoviedb.org/3/genre/movie/list?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US';
 
-    let stockMovies = {...props.movies.results};
-    // window.onscroll = function(ev) {
-    //     if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
-    //         console.log('check');
-    //     }
-    // };
+
+const Discover = () => {
     
+    const [page, setPage] = useState(1);
+    const [genre, setGenre] = useState(28);
+    const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
+    const APIKEY = 'api_key=59d266ad02d1642bf64bc31fb887924c';
+    const PARAMS = `&language=en-US&sort_by=popularity.desc&page=${page}&with_genres=`;
+    const BASEURL = 'https://api.themoviedb.org/3/discover/movie?';
+    const [movies, setMovies] = useState([]);
+    const [moviesGenre, setMoviesGenre] = useState([]);
 
-    if(props.movies.length !== 0) { 
+    const fetchMovies = async () =>  {
+      try {
+        const response = await fetch(BASEURL + APIKEY + PARAMS + genre);
+        const movies = await response.json();
+        setMovies(movies);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    useEffect(() => {
+      fetchMovies();
+    }, [genre]);
+
+    const fetchMoviesGenre = async () =>  {
+        try {
+        const response = await fetch(APIGENRE);
+        const moviesGenre = await response.json();
+        setMoviesGenre(moviesGenre);
+        } catch (error) {
+        console.log(error);
+        }
+    }
+    useEffect(() => {
+        fetchMoviesGenre();
+    }, []);
+
+    let stockMoviesGenre = {...moviesGenre.genres};
+    let stockMovies = {...movies.results};
+
+    if(stockMovies.length !== 0) { 
         return (
             <main>
+                <NavBar />
                 <Search />
                 <Genre />
                 <AllMovieCard />
@@ -43,14 +79,36 @@ const Discover = (props) => {
     function Genre() {
         return (
             <>
-            <nav className="genre">
-                <a className="genreLink" href="#">Fantasy</a>
-                <a className="genreLink" href="#">Horror</a>
-                <a className="genreLink" href="#">Science Fiction</a>
-                <a className="genreLink" href="#">Documentary</a>
-            </nav>
+            <Carousel 
+                itemsToShow={3} 
+                showArrows={false}  
+                pagination={false} 
+                // outerSpacing={50}
+                // itemPadding={[0, 155]}
+                className="movieGenres" >
+            {
+                Object.entries(stockMoviesGenre).map((genre) => {
+                    return (
+                        <p 
+                        className="genreLink" 
+                        id= { genre[1].id }
+                        onClick= { (e) => changeGenre(e) }
+                        key={ genre[1].id }
+                        >
+                        { genre[1].name } 
+                        </p>
+                    )
+                })
+            }
+            </Carousel>
             </>
         );
+    }
+
+    function changeGenre(e) {
+        e.preventDefault();
+        setGenre(e.target.id);
+        console.log('setGenre: ', genre);
     }
 
     function AllMovieCard() {
@@ -58,14 +116,15 @@ const Discover = (props) => {
             <>
             <div className="allMovie">
                 {
-                    Object.entries(stockMovies).map((key, value) => {
+                    Object.entries(stockMovies).map((movie) => {
+
                         return (
-                            <a href="/detail" value={ key[1].id } onclick={ console.log('check') }>
+                            <a href="/detail" id={ movie[1].id } key={ movie[1].id }>
                                 <div className="cardDiscover">
-                                    <img src={IMGPATH + key[1].poster_path} alt={ IMGPATH + key[1].title }/>
+                                    <div className="widthImg"><img src={IMGPATH + movie[1].poster_path} alt={ IMGPATH + movie[1].title } /></div>
                                     <p className="titleDiscover">
-                                        { key[1].title }
-                                        <span className="dateColor">({ key[1].release_date.substring(0,4) })</span>
+                                        { movie[1].title }
+                                        <span className="dateColor">({ movie[1].release_date.substring(0,4) })</span>
                                     </p>
                                 </div>
                             </a>
@@ -76,6 +135,12 @@ const Discover = (props) => {
             </>
         );
     }
+
+    // window.onscroll = function(ev) {
+    //     if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
+    //         console.log('check');
+    //     }
+    // };
 }
 
 export default Discover

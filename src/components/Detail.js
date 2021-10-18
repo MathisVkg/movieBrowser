@@ -13,10 +13,7 @@ const Detail = (props) => {
     let iconsBack = { className: 'backBtn' };
     const[readMore, setReadMore] = useState(false);
     const textTest = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus nisi vitae tellus molestie convallis. Duis et diam at sapien condimentum efficitur. Mauris maximus purus justo, fermentum ullamcorper ante ultricies nec. Ut nec massa sit amet sem bibendum semper. Pellentesque ultrices justo lacinia pulvinar varius. Phasellus non leo sit amet tellus auctor aliquam ut at arcu. Suspendisse molestie, dolor id pharetra iaculis, mi magna ultricies justo, in rutrum enim ante non dolor. Mauris posuere felis sit amet nulla rhoncus, sit amet pharetra tellus commodo. Duis id elementum ex. Ut volutpat vestibulum quam sed consequat.';
-    let stockMovies = {...props.movies.results};
-    console.log('stockMovies: ', stockMovies);
-
-    if(props.movies.length !== 0) { 
+    // if(props.movies.length !== 0) { 
         return (
             <main>
                 <Wallpaper />
@@ -26,20 +23,20 @@ const Detail = (props) => {
                 <MoreMovie />
             </main>
         )
-    } else {
-        return( 
-            <Loader />
-        )
-    }
+    // } else {
+    //     return( 
+    //         <Loader />
+    //     )
+    // }
 
     function Wallpaper() {
         return (
             <>
             <div className="wallpaper"
-            style=
-            {{
-                backgroundImage: `url('${IMGPATH + stockMovies[0].poster_path}')`
-            }}
+            // style=
+            // {{
+            //     backgroundImage: `url('${IMGPATH + stockMovies[0].poster_path}')`
+            // }}
             >
                 <a href="#"><IconContext.Provider value={ icons }><BsFillPlayFill /></IconContext.Provider></a>
                 <a href="./home"><IconContext.Provider value={ iconsBack }><IoChevronBackOutline /></IconContext.Provider></a>
@@ -53,7 +50,7 @@ const Detail = (props) => {
             <>
             <div className="infoGroup">
                 <div className="firstInfo">
-                    <h2>{ stockMovies[0].title }</h2>
+                    <h2>Stars wars</h2>
                     <p>4K</p>
                 </div>
                 <div className="secondInfo">
@@ -96,13 +93,15 @@ const Detail = (props) => {
     function Description() {
         return (
             <>
-            <h2 className="desTitle">Synopsis</h2>
-            <p className="desText">{ readMore ? textTest : `${ textTest.substring(0,200) }` }
-                <button 
-                className="readMoreBtn" 
-                onClick={ () => setReadMore(!readMore) }>{ readMore ? 'Show less' :'Readmore..' }
-                </button>
-            </p>
+            <div className="desGroup">
+                <h2 className="desTitle">Synopsis</h2>
+                <p className="desText">{ readMore ? textTest : `${ textTest.substring(0,200) }` }
+                    <button 
+                    className="readMoreBtn" 
+                    onClick={ () => setReadMore(!readMore) }>{ readMore ? 'Show less' :'Readmore..' }
+                    </button>
+                </p>
+            </div>
             </>
         );
     }
@@ -113,7 +112,7 @@ const Detail = (props) => {
             <div className="moreMovie">
                 <div className="movieCard">
                     {/* <img>img</img> */}
-                    <p className="movieTitle">movie title</p>
+                    <p className="movieTitle">Related Movies</p>
                 </div>
             </div>
             </>

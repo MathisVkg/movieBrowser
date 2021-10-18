@@ -143,7 +143,29 @@
   .dateContainer .genreGroup .genreBlur .genreText:hover {
     background: rgba(31, 30, 30, 0.6);
   }
-  .desTitle {
+  .desGroup {
+    margin-left: 20px;
+  }
+  .desGroup .desTitle {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  .desGroup .desText {
+    margin-top: 0;
+    font-size: 0.9em;
+    color: #BCBCBC;
+    width: 405px;
+    line-height: 20px;
+  }
+  .desGroup .desText button {
+    background-color: unset;
+    border: unset;
+    color: white;
+    cursor: pointer;
+    font-size: 1.1em;
+  }
+  .moreMovie {
+    margin-top: 25px;
     margin-left: 20px;
   }
 }

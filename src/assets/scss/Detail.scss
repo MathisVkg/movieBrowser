@@ -144,7 +144,29 @@
             }
         }
     }
-    .desTitle {
+    .desGroup {
+        margin-left: 20px;
+        .desTitle {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .desText {
+            margin-top: 0;
+            font-size: 0.9em;
+            color: #BCBCBC;
+            width: 405px;
+            line-height: 20px;
+            button {
+                background-color: unset;
+                border: unset;
+                color: white;
+                cursor: pointer;
+                font-size: 1.1em;
+            }
+        }
+    }
+    .moreMovie {
+        margin-top: 25px;
         margin-left: 20px;
     }
 }

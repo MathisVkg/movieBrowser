@@ -2,8 +2,9 @@ import '../assets/scss/Home.css';
 import '../assets/scss/Base.css';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
-import Carousel from 'react-elastic-carousel'
+import Carousel from 'react-elastic-carousel';
 import Loader from '../components/Loader';
+import NavBar from './NavBar';
 
 const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
 const Home = (props) => {
@@ -12,6 +13,7 @@ const Home = (props) => {
     if(props.movies.length !== 0) { 
         return (
             <main>
+                <NavBar />
                 <RandomCard />
                 <TrandingCard />
             </main>
@@ -27,22 +29,22 @@ const Home = (props) => {
         return (
             <>
             <h1 className="pageTitle">Movie<span className="titleColor">Browser</span></h1>
-            <div className="containerSpotlight"
-            style=
-            {{
-                backgroundImage: `url('${IMGPATH + stockMovies[randomMovie].poster_path}')`
-            }}
-            >
-                <a href="/detail">
-                    <div className="spotlightGroup">
-                        <span className="playIcon"><BsFillPlayCircleFill /></span>
-                        <div className="textDiv">
-                            <p>Movie Spotlight</p>
-                            <h2>{ stockMovies[randomMovie].title.substring(0, 27) }</h2>
-                        </div>
+            <a href="/detail" id={ stockMovies[randomMovie].id }>
+                <div className="containerSpotlight"
+                style=
+                {{
+                    backgroundImage: `url('${IMGPATH + stockMovies[randomMovie].poster_path}')`
+                }}
+                >
+                <div className="spotlightGroup">
+                    <span className="playIcon"><BsFillPlayCircleFill /></span>
+                    <div className="textDiv">
+                        <p>Movie Spotlight</p>
+                        <h2>{ stockMovies[randomMovie].title.substring(0, 27) }</h2>
                     </div>
-                </a>
-            </div> 
+                </div>
+                </div> 
+            </a>
             </>
         );
     }
@@ -61,7 +63,7 @@ const Home = (props) => {
             {
                 Object.entries(stockMovies).map((key, value) => {
                     return (
-                        <a href="/detail">
+                        <a href="/detail" id={ key[1].id }>
                             <div className="card"
                             style=
                             {{
