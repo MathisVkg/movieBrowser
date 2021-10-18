@@ -6,5 +6,19 @@
     color: white;
     font-family: 'Lato', sans-serif;
   }
+  .container img {
+    margin: 25px;
+    margin-bottom: 0;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  .container .pseudo {
+    margin-top: 5px;
+    font-size: 2em;
+    font-weight: 700;
+    margin-left: 25px;
+  }
 }
 /*# sourceMappingURL=User.css.map */
