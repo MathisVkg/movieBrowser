@@ -5,6 +5,7 @@ import Loader from '../components/Loader';
 import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import { NavLink } from 'react-router-dom';
+import { BsArrowUpShort } from 'react-icons/bs';
 
 const APIGENRE = 'https://api.themoviedb.org/3/genre/movie/list?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US';
 
@@ -26,7 +27,6 @@ const Discover = () => {
       try {
         const response = await fetch(BASEURL + APIKEY + PARAMS + genre);
         const moviesData = await response.json();
-        // setMovies(moviesData.results);
         setMovies(prevState => [...prevState, ...moviesData.results]);
       } catch (error) {
         console.log(error);
@@ -49,6 +49,7 @@ const Discover = () => {
         fetchMoviesGenre();
     }, []);
 
+
     window.onscroll = function(ev) {
         if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
             setIsTrue(true);
@@ -69,6 +70,7 @@ const Discover = () => {
                 <Search />
                 <Genre />
                 <AllMovieCard />
+                <BackToTop />
             </main>
         )
     } else {
@@ -77,10 +79,18 @@ const Discover = () => {
         )
     }
 
+    function BackToTop() {
+        return (
+            <>
+            <a href="#top" className="backToTop"><BsArrowUpShort /></a>
+            </>
+        );
+    }
+
     function Search() {
         return (
             <>
-            <h1 className="pageTitle">Movie<span className="titleColor">Browser</span></h1>
+            <h1 className="pageTitle">Movie<span className="titleColor" id="top">Browser</span></h1>
             <div className="searchBar">
                 <span className="searchIcon"><FaSearch /></span>
                 <input type="text" placeholder="Sherlock Holmes"></input>
@@ -92,7 +102,7 @@ const Discover = () => {
     function Genre() {
         return (
             <>
-            <nav className="movieGenres" >
+            <nav className="movieGenres">
             {
                 moviesGenre.map((genre) => {
                     return (

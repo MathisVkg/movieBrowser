@@ -6,6 +6,15 @@
     color: white;
     font-family: 'Lato', sans-serif;
   }
+  .backToTop {
+    position: fixed;
+    bottom: 70px;
+    right: 25px;
+    font-size: 1.4em;
+    background-color: #15141F;
+    border-radius: 50%;
+    padding: 4px;
+  }
   .pageTitle {
     margin-top: 25px;
     margin-left: 25px;

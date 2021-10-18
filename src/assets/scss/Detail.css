@@ -20,7 +20,6 @@
     font-size: 2.5em;
     color: #f57e2f;
     background: rgba(122, 122, 122, 0.6);
-    box-shadow: 0 8px 32px 0 #1f26875e;
     backdrop-filter: blur(8px);
     border-radius: 50%;
     border: 1px solid #ffffff2e;
@@ -32,9 +31,12 @@
   }
   .wallpaper .backBtn {
     position: fixed;
-    font-size: 2em;
+    font-size: 1.8em;
     top: 20px;
     left: 15px;
+    background-color: #15141F;
+    border-radius: 50%;
+    padding: 2px;
     transition: 0.4s ease-in-out;
   }
   .wallpaper .backBtn:hover {
@@ -123,21 +125,25 @@
     flex-direction: column;
     margin-left: 20px;
   }
+  .dateContainer .genreGroup .genre {
+    font-weight: 700;
+    margin-left: 15px;
+    margin-bottom: 7px;
+  }
   .dateContainer .genreGroup .genreBlur {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-  }
-  .dateContainer .genreGroup .genreBlur .genre {
-    font-weight: 700;
   }
   .dateContainer .genreGroup .genreBlur .genreText {
     background: rgba(122, 122, 122, 0.6);
     backdrop-filter: blur(8px);
     border: 1px solid #ffffff2e;
-    padding: 2px 12px;
+    padding: 4px 12px;
     border-radius: 20px;
     margin-top: 0;
     margin-left: 10px;
+    font-size: 0.8em;
     transition: 0.4s ease-in-out;
   }
   .dateContainer .genreGroup .genreBlur .genreText:hover {
@@ -167,6 +173,21 @@
   .moreMovie {
     margin-top: 25px;
     margin-left: 20px;
+    margin-bottom: 50px;
+  }
+  .moreMovie .movieCard {
+    width: 150px;
+  }
+  .moreMovie .movieCard .movieTitle {
+    font-size: 0.8em;
+    margin-top: 5px;
+  }
+  .moreMovie .movieCard .movieImg {
+    width: 170px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 0;
   }
 }
 /*# sourceMappingURL=Detail.css.map */
