@@ -20,6 +20,7 @@ const Discover = () => {
     const [movies, setMovies] = useState([]);
     const [moviesGenre, setMoviesGenre] = useState([]);
 
+
     const fetchMovies = async () =>  {
       try {
         const response = await fetch(BASEURL + APIKEY + PARAMS + genre);
@@ -79,13 +80,7 @@ const Discover = () => {
     function Genre() {
         return (
             <>
-            <Carousel 
-                itemsToShow={3} 
-                showArrows={false}  
-                pagination={false} 
-                // outerSpacing={50}
-                // itemPadding={[0, 155]}
-                className="movieGenres" >
+            <nav className="movieGenres" >
             {
                 Object.entries(stockMoviesGenre).map((genre) => {
                     return (
@@ -100,13 +95,14 @@ const Discover = () => {
                     )
                 })
             }
-            </Carousel>
+            </nav>
             </>
         );
     }
 
     function changeGenre(e) {
         e.preventDefault();
+        e.target.style.color = '#f57e2f';
         setGenre(e.target.id);
         console.log('setGenre: ', genre);
     }
@@ -136,11 +132,6 @@ const Discover = () => {
         );
     }
 
-    // window.onscroll = function(ev) {
-    //     if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
-    //         console.log('check');
-    //     }
-    // };
 }
 
 export default Discover

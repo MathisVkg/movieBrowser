@@ -2,16 +2,22 @@
   z-index: 1;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   position: fixed;
   width: 100%;
   bottom: 0;
   background-color: #161624;
-  padding: 15px 0;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 .menu .icons {
   color: inherit;
-  font-size: 1.5em;
+  font-size: 1.4em;
+}
+
+.menu .iconsSearch {
+  font-size: 2em;
 }
 
 a {

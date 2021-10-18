@@ -5,12 +5,15 @@ import { AiFillStar } from 'react-icons/ai';
 import Carousel from 'react-elastic-carousel';
 import Loader from '../components/Loader';
 import NavBar from './NavBar';
+import React, { useState } from 'react';
 
-const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
 const Home = (props) => {
-
+    
     let stockMovies = { ...props.movies.results };
-    if(props.movies.length !== 0) { 
+    const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
+    const [idMovie, setIdMovie] = useState();
+
+    if(stockMovies.length !== 0) { 
         return (
             <main>
                 <NavBar />
@@ -24,12 +27,17 @@ const Home = (props) => {
         )
     }
 
+
     function RandomCard() {
         let randomMovie = parseInt(Math.floor(Math.random() * 20));
         return (
             <>
             <h1 className="pageTitle">Movie<span className="titleColor">Browser</span></h1>
-            <a href="/detail" id={ stockMovies[randomMovie].id }>
+            <a 
+                href="/detail" 
+                id= { stockMovies[randomMovie].id } 
+                // onClick= { (e) => IdMovie(e) }
+                >
                 <div className="containerSpotlight"
                 style=
                 {{
@@ -61,20 +69,20 @@ const Home = (props) => {
                 // itemPadding={[0, 155]}
                 className="movieList" >
             {
-                Object.entries(stockMovies).map((key, value) => {
+                Object.entries(stockMovies).map((movie, value) => {
                     return (
-                        <a href="/detail" id={ key[1].id }>
+                        <a href="/detail" id={ movie[1].id } key={ movie[1].id }>
                             <div className="card"
                             style=
                             {{
-                                backgroundImage: `url('${ IMGPATH + key[1].poster_path }')`
+                                backgroundImage: `url('${ IMGPATH + movie[1].poster_path }')`
                             }}
                             >
                                 <div className="rateGroup">
                                     <span className="rateIcon"><AiFillStar /></span>
-                                    <p className="rate">{ key[1].vote_average }</p>
+                                    <p className="rate">{ movie[1].vote_average }</p>
                                 </div>
-                                <p className="title">{ key[1].title }</p>
+                                <p className="title">{ movie[1].title }</p>
                             </div>
                         </a>
                     )
@@ -84,6 +92,13 @@ const Home = (props) => {
             </>
         );
     }
+
+    // function IdMovie(e) {
+    //     e.preventDefault();
+    //     e.target.style.color = '#f57e2f';
+    //     setIdMovie(e.target.id);
+    //     console.log('IdMovie: ', idMovie);
+    // }
 }
 
 export default Home

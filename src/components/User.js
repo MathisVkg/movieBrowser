@@ -3,7 +3,10 @@ import NavBar from './NavBar';
 
 const User = () => {
     return (
-        <NavBar />
+        <>
+            <h2>User</h2>
+            <NavBar />
+        </>
     )
 }
 

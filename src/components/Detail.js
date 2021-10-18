@@ -4,10 +4,10 @@ import { IoChevronBackOutline } from 'react-icons/io5';
 import { BiTime } from 'react-icons/bi';
 import { AiFillStar } from 'react-icons/ai';
 import React, { useState } from 'react';
-import Loader from '../components/Loader';
+// import Loader from '../components/Loader';
 import '../assets/scss/Detail.css';
 
-const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
+// const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
 const Detail = (props) => {
     let icons = { className: 'playBtn' };
     let iconsBack = { className: 'backBtn' };

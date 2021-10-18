@@ -5,16 +5,20 @@
     z-index: 1;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     position: fixed;
     width: 100%;
     bottom: 0;
     // background-color: #8f8f9b; 
     background-color: #161624; 
-    padding: 15px 0;
+    padding-top: 10px;
+    padding-bottom: 5px;
     .icons {
-        // color: #fff;
         color: inherit;
-        font-size: 1.5em;
+        font-size: 1.4em;
+    }
+    .iconsSearch {
+        font-size: 2em;
     }
 }
 

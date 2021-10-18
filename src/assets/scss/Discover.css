@@ -34,14 +34,20 @@
   }
   .movieGenres {
     display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
+    overflow: scroll;
+    margin-bottom: 10px;
     min-height: 24px;
+    margin-left: 15px;
+    scrollbar-width: none;
+  }
+  .movieGenres::-webkit-scrollbar {
+    display: none;
   }
   .movieGenres .genreLink {
     text-decoration: none;
     color: white;
     margin: 0 6px;
+    cursor: pointer;
     transition: 0.4s ease-in-out;
   }
   .movieGenres .genreLink:hover {
@@ -64,6 +70,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 50px;
   }
   .allMovie a {
     text-decoration: none;

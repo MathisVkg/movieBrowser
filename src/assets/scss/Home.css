@@ -16,7 +16,7 @@
     color: white;
   }
   .containerSpotlight {
-    width: 340px;
+    width: 90%;
     height: 200px;
     margin: 0 auto;
     border-radius: 20px;
@@ -38,7 +38,6 @@
     align-items: center;
     position: absolute;
     background: rgba(122, 122, 122, 0.6);
-    box-shadow: 0 8px 32px 0 #1f26875e;
     backdrop-filter: blur(8px);
     border-radius: 12px;
     border: 1px solid #ffffff2e;
@@ -73,9 +72,7 @@
   .subTitle {
     margin-top: 35px;
     margin-left: 25px;
-  }
-  .movieList {
-    margin-bottom: 65px;
+    margin-bottom: 5px;
   }
   .movieList a {
     text-decoration: none;
@@ -86,8 +83,8 @@
     background-repeat: no-repeat;
     background-position: top;
     border-radius: 20px;
-    width: 270px;
-    height: 380px;
+    width: 90%;
+    height: 360px;
     padding: 10px;
     margin: 10px;
   }
@@ -97,14 +94,13 @@
     align-items: center;
     justify-content: center;
     background: rgba(122, 122, 122, 0.6);
-    box-shadow: 0 8px 32px 0 #1f26875e;
     backdrop-filter: blur(8px);
     border-radius: 12px;
     border: 1px solid #ffffff2e;
     width: 65px;
     height: 50px;
     top: 10px;
-    left: 200px;
+    left: 190px;
   }
   .movieList .card .rateGroup .rate {
     color: white;
@@ -120,13 +116,12 @@
     position: relative;
     color: #ffffff;
     background: rgba(122, 122, 122, 0.6);
-    box-shadow: 0 8px 32px 0 #1f26875e;
     backdrop-filter: blur(8px);
     border-radius: 12px;
     border: 1px solid #ffffff2e;
     width: 245px;
     padding: 20px 0;
-    top: 245px;
+    top: 230px;
     text-shadow: 2px 2px 6px #161624;
   }
 }
