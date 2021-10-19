@@ -12,7 +12,7 @@
         width: 100%;
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: top;
         .playBtn {
             position: relative;
             top: 40%;
@@ -31,12 +31,12 @@
         }
         .backBtn {
             position: fixed;
-            font-size: 1.8em;
+            font-size: 1.5em;
             top: 20px;
             left: 15px;
             background-color: #15141F;
             border-radius: 50%;
-            padding: 2px;
+            padding: 4px;
             transition: 0.4s ease-in-out;
             &:hover {
                 transform: translateX(-4px);
@@ -75,6 +75,7 @@
         display: flex;
         align-items: center;
         height: 30px;
+        margin-top: 15px;
         svg {
             font-size: 1.2em;
             margin-right: 10px;

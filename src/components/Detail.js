@@ -1,6 +1,6 @@
 import { BsFillPlayFill } from 'react-icons/bs';
 import { IconContext } from 'react-icons/lib';
-import { IoChevronBackOutline } from 'react-icons/io5';
+import { BiArrowFromRight } from 'react-icons/bi';
 import { BiTime } from 'react-icons/bi';
 import { AiFillStar } from 'react-icons/ai';
 import Loader from '../components/Loader';
@@ -39,7 +39,7 @@ const Detail = () => {
                 <BaseInfo />
                 <MoreInfo />
                 <Description />
-                <MoreMovie />
+                {/* <MoreMovie /> */}
             </main>
         )
     } else {
@@ -58,7 +58,7 @@ const Detail = () => {
             }}
             >
                 <NavLink to="#"><IconContext.Provider value={ icons }><BsFillPlayFill /></IconContext.Provider></NavLink>
-                <NavLink to="/home"><IconContext.Provider value={ iconsBack }><IoChevronBackOutline /></IconContext.Provider></NavLink>
+                <NavLink to="/home"><IconContext.Provider value={ iconsBack }><BiArrowFromRight /></IconContext.Provider></NavLink>
             </div>
             </>
         );
@@ -104,14 +104,24 @@ const Detail = () => {
                 <div className="genreGroup">
                     <p className="genre">Genre</p>
                     <div className="genreBlur">
-                        <p className="genreText">{ moviesDetails.genres[0].name }</p>
-                        <p className="genreText">{ moviesDetails.genres[1].name }</p>
+                        { getGenres() }
                     </div>
                 </div>
             </div>
             <div className="underLine"></div>
             </>
         );
+    }
+
+    function getGenres() {
+        for(let i = 0; i < moviesDetails.genres.length; i++){
+            console.log('check')
+            return (
+                <>
+                <p className="genreText">{ moviesDetails.genres[i].name }</p>
+                </>
+            );
+        }
     }
 
     function switchMonth() {
@@ -180,7 +190,7 @@ const Detail = () => {
             <div className="moreMovie">
                 <p className="moreMovieTitle">Related Movies</p>
                     <div className="movieCard">
-                        <img src={ IMGPATH + moviesDetails.belongs_to_collection.poster_path } className="movieImg" />
+                        <img src={ checkCollection() } className="movieImg" />
                         <p className="movieTitle">{ moviesDetails.belongs_to_collection.name }</p>
                     </div>
             </div>
@@ -189,7 +199,19 @@ const Detail = () => {
     }
 
     function checkCollection() {
-        
+        if( moviesDetails.belongs_to_collection.poster_path == null) {
+            return (
+                <>
+                <img src="" className="movieImg" />
+                </>
+            );
+        } else {
+            return (
+                <>
+                <img src={ IMGPATH + moviesDetails.belongs_to_collection.poster_path } className="movieImg" />
+                </>
+            );
+        }
     }
 }
 

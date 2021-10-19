@@ -54,7 +54,7 @@ const Discover = () => {
         if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
             setIsTrue(true);
             if(IsTrue == true) {
-                setPage( prevState => (prevState + 1));
+                setPage(page + 1)
                 console.log('setPage: ', page);
                 fetchMovies();
                 setIsTrue(false);
@@ -63,7 +63,7 @@ const Discover = () => {
     };
 
 
-    if(movies.length !== 0) { 
+    if(movies.length == 0) { 
         return (
             <main>
                 <NavBar />
@@ -125,6 +125,7 @@ const Discover = () => {
     function changeGenre(e) {
         e.preventDefault();
         e.target.style.color = '#f57e2f';
+        setMovies([]);
         setGenre(e.target.id);
         console.log('setGenre: ', genre);
     }
