@@ -68,9 +68,8 @@ const Discover = () => {
     window.onscroll = function(ev) {
         if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
             setIsTrue(true);
-            if(IsTrue == true) {
+            if(IsTrue === true) {
                 setPage(page + 1)
-                console.log('setPage: ', page);
                 fetchMovies();
                 setIsTrue(false);
             }
