@@ -8,6 +8,36 @@
         font-family: 'Lato', sans-serif;
     }
     .container {
+        .circularGroup {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 10px;
+            .circularBarText {
+                font-size: 0.8em;
+                margin-left: 10px;
+                margin-top: 30px;
+                width: 80px;
+            }
+            .CircularProgressbar {
+                margin-top: 10px;
+                width: 35%;
+                .CircularProgressbar-text {
+                    font-size: 25px;
+                    fill: white;
+                    font-weight: 700;
+                }
+                .CircularProgressbar-background {
+                    fill: #23222c;
+                }
+                .CircularProgressbar-path {
+                    stroke: #21b635;
+                }
+                .CircularProgressbar-trail {
+                    stroke: #21b63546;
+                }
+            }
+        }
         img {
             margin: 25px;
             margin-bottom: 0;
@@ -16,11 +46,38 @@
             object-fit: cover;
             border-radius: 20px;
         }
-        .pseudo {
+        div {
+            display: flex;
+            div {
+                display: flex;
+                flex-direction: column;
+                .name {
+                    margin-top: 35px;
+                    margin-bottom: 0;
+                    font-size: 1.4em;
+                }
+                .lastname {
+                    margin-top: 5px;
+                    font-size: 1.4em;
+                    margin-bottom: 0;
+                }
+                .pseudo {
+                    margin-top: 5px;
+                    font-size: 0.9em;
+                    font-weight: 700;
+                }
+            }
+        }
+        .desTitle {
+            font-size: 1.1em;
+            margin: 25px 0 0 30px;
+        }
+        .description {
             margin-top: 5px;
-            font-size: 2em;
-            font-weight: 700;
-            margin-left: 25px;
+            margin-left: 30px;
+            font-size: 1em;
+            width: 300px;
+            color: #BCBCBC;
         }
     }
 }

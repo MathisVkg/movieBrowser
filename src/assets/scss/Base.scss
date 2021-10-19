@@ -37,6 +37,10 @@ a {
     align-items: center;
     justify-content: center;
     margin-top: 70%;
+
+    animation-name: bounce;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
     h2 {
         font-size: 2.5em;
         margin-top: 0;
@@ -63,4 +67,3 @@ a {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-  

@@ -22,6 +22,12 @@ const Discover = () => {
     const [moviesGenre, setMoviesGenre] = useState([]);
     const [IsTrue, setIsTrue] = useState(false);
 
+    const [searchWord, setSearchWord] = useState();
+    const BASESEARCH = 'https://api.themoviedb.org/3/search/movie?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US&query=';
+    const SEARCHPARAMS = '&page=1&include_adult=false'
+    const [inputValue, setInputValue] = useState('');
+    console.log('inputValue: ', inputValue);
+
 
     const fetchMovies = async () =>  {
       try {
@@ -49,6 +55,15 @@ const Discover = () => {
         fetchMoviesGenre();
     }, []);
 
+    const fetchMovieSearch = async () => {
+        try {
+        const response = await fetch(BASESEARCH + searchWord.replace(/\s/g, '%20') + SEARCHPARAMS);
+        const movieData = await response.json();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
     window.onscroll = function(ev) {
         if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
@@ -63,7 +78,7 @@ const Discover = () => {
     };
 
 
-    if(movies.length == 0) { 
+    if(movies.length !== 0) { 
         return (
             <main>
                 <NavBar />
@@ -79,6 +94,7 @@ const Discover = () => {
         )
     }
 
+
     function BackToTop() {
         return (
             <>
@@ -93,7 +109,11 @@ const Discover = () => {
             <h1 className="pageTitle">Movie<span className="titleColor" id="top">Browser</span></h1>
             <div className="searchBar">
                 <span className="searchIcon"><FaSearch /></span>
-                <input type="text" placeholder="Sherlock Holmes"></input>
+                <input type="text" placeholder="Sherlock Holmes" onKeyPress=
+                { 
+                    event => setInputValue(event.target.value)
+                }
+                ></input>
             </div>
             </>
         );
@@ -125,9 +145,8 @@ const Discover = () => {
     function changeGenre(e) {
         e.preventDefault();
         e.target.style.color = '#f57e2f';
-        setMovies([]);
         setGenre(e.target.id);
-        console.log('setGenre: ', genre);
+        setMovies([]);
     }
 
     function AllMovieCard() {

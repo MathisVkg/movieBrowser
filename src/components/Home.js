@@ -85,7 +85,6 @@ const Home = (props) => {
                             return (
                                 <NavLink to={`/detail/${ movie.id }`} key={movie.id}>
                                     <div className="card"
-                                        onClick= { (e) => IdMovie(e) }
                                         id={movie.id}
                                         style=
                                         {{
@@ -105,10 +104,6 @@ const Home = (props) => {
                 </Carousel>
             </>
         );
-    }
-
-    function IdMovie(e) {
-        console.log('e.target.id: ', e.target.id);
     }
 }
 

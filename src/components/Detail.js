@@ -14,16 +14,27 @@ const Detail = () => {
     let icons = { className: 'playBtn' };
     const {movieId} = useParams();
     const [readMore, setReadMore] = useState(false);
-    
+    const [collectionId, setCollectionId] = useState('');
     const APIDETAILS = 'https://api.themoviedb.org/3/movie/' + movieId + '?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US';
     const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
+    const BASEURL = 'https://api.themoviedb.org/3/collection/';
+    const APIKEY = '?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US';
     const [moviesDetails, setMoviesDetails] = useState([]);
+    const [movieCollection, setMovieCollection] = useState([]);
   
     const fetchMoviesDetails = async () =>  {
         try {
         const response = await fetch(APIDETAILS);
         const moviesData = await response.json();
         setMoviesDetails(moviesData);
+        // setTimeout(() => {
+        //     if(moviesData.length !== 0) {
+        //         setCollectionId(moviesData.belongs_to_collection.id);
+        //         console.log('setCollectionId: ', collectionId);
+        //     } else {
+        //         return;
+        //     }
+        // }, 1000);
         } catch (error) {
         console.log(error);
         }
@@ -31,7 +42,22 @@ const Detail = () => {
     useEffect(() => {
         fetchMoviesDetails();
     }, []);
-    console.log(moviesDetails);
+
+    const getchMovieCollection = async () =>  {
+        try {
+        const response = await fetch(BASEURL + collectionId + APIKEY);
+        const moviesData = await response.json();
+        setMovieCollection(moviesData);
+        } catch (error) {
+        console.log(error);
+        }
+    }
+    useEffect(() => {
+        // getchMovieCollection();
+    }, []);
+
+    console.log('1',moviesDetails);
+    // console.log('2',movieCollection);
     if(moviesDetails.length !== 0) { 
         return (
             <main>
@@ -115,7 +141,6 @@ const Detail = () => {
 
     function getGenres() {
         for(let i = 0; i < moviesDetails.genres.length; i++){
-            console.log('check')
             return (
                 <>
                 <p className="genreText">{ moviesDetails.genres[i].name }</p>

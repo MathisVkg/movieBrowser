@@ -6,6 +6,36 @@
     color: white;
     font-family: 'Lato', sans-serif;
   }
+  .container .circularGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .container .circularGroup .circularBarText {
+    font-size: 0.8em;
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 80px;
+  }
+  .container .circularGroup .CircularProgressbar {
+    margin-top: 10px;
+    width: 35%;
+  }
+  .container .circularGroup .CircularProgressbar .CircularProgressbar-text {
+    font-size: 25px;
+    fill: white;
+    font-weight: 700;
+  }
+  .container .circularGroup .CircularProgressbar .CircularProgressbar-background {
+    fill: #23222c;
+  }
+  .container .circularGroup .CircularProgressbar .CircularProgressbar-path {
+    stroke: #21b635;
+  }
+  .container .circularGroup .CircularProgressbar .CircularProgressbar-trail {
+    stroke: #21b63546;
+  }
   .container img {
     margin: 25px;
     margin-bottom: 0;
@@ -14,11 +44,38 @@
     object-fit: cover;
     border-radius: 20px;
   }
-  .container .pseudo {
+  .container div {
+    display: flex;
+  }
+  .container div div {
+    display: flex;
+    flex-direction: column;
+  }
+  .container div div .name {
+    margin-top: 35px;
+    margin-bottom: 0;
+    font-size: 1.4em;
+  }
+  .container div div .lastname {
     margin-top: 5px;
-    font-size: 2em;
+    font-size: 1.4em;
+    margin-bottom: 0;
+  }
+  .container div div .pseudo {
+    margin-top: 5px;
+    font-size: 0.9em;
     font-weight: 700;
-    margin-left: 25px;
+  }
+  .container .desTitle {
+    font-size: 1.1em;
+    margin: 25px 0 0 30px;
+  }
+  .container .description {
+    margin-top: 5px;
+    margin-left: 30px;
+    font-size: 1em;
+    width: 300px;
+    color: #BCBCBC;
   }
 }
 /*# sourceMappingURL=User.css.map */
