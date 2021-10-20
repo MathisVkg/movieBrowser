@@ -8,38 +8,6 @@ import "react-circular-progressbar/dist/styles.css";
 const User = () => {
 
     const percentage = 77;
-    const [getToken, setGetToken] = useState([]);
-    const [getUser, setGetUser] = useState([]);
-    const APITOKEN = 'https://api.themoviedb.org/3/authentication/token/new?api_key=59d266ad02d1642bf64bc31fb887924c';
-    const APIUSER = 'https://api.themoviedb.org/3/authentication/session/new?api_key=59d266ad02d1642bf64bc31fb887924c';
-
-    const fetchToken = async () =>  {
-        try {
-        const response = await fetch(APITOKEN);
-        const tokenData = await response.json();
-        setGetToken(tokenData);
-        } catch (error) {
-        console.log(error);
-        }
-    }
-    useEffect(() => {
-        fetchToken();
-    }, []);
-
-    const fetchUser = async () =>  {
-        try {
-        const response = await fetch(APIUSER);
-        const userData = await response.json();
-        setGetUser(userData);
-        } catch (error) {
-        console.log(error);
-        }
-    }
-    useEffect(() => {
-        fetchUser();
-    }, []);
-    console.log('1', getToken);
-    console.log('2', getUser);
 
     return (
         <>

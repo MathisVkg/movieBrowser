@@ -127,3 +127,60 @@ body {
         }
     }
 }
+
+@media only screen and (min-width: 760px) {
+    .pageTitle {
+        font-size: 3.5em;
+        margin-left: 50px;
+    }
+    .containerSpotlight {
+        height: 400px;
+        background-position: center;
+        .spotlightGroup {
+            padding-right: 30px;
+            backdrop-filter: unset;
+            height: 120px;
+            .playIcon {
+                margin-left: 20px;
+                font-size: 4.2em;
+            }
+            .textDiv {
+                p{
+                    font-size: 2em;
+                }
+                h2 {
+                    font-size: 2em;
+                }
+            }
+        }
+    }
+    .subTitle {
+        font-size: 2.8em;
+        margin-left: 50px;
+    }
+    .movieList {
+        .card {
+            width: 280px;
+            height: 600px;
+            background-position: center;
+            .rateGroup {
+                backdrop-filter: unset;
+                width: 115px;
+                left: 570px;
+                .rateIcon {
+                    font-size: 2.6em;
+                }
+                .rate {
+                    font-size: 1.9em;
+                }
+            }
+            .title {
+                top: 405px;
+                margin-left: 15px;
+                width: 90%;
+                font-size: 1.7em;
+                backdrop-filter: unset;
+            }
+        }
+    }
+}

@@ -16,12 +16,23 @@ const Detail = () => {
     const {movieId} = useParams();
     const [readMore, setReadMore] = useState(false);
     const [collectionId, setCollectionId] = useState();
+    const [itemToShowCarou, setItemToShowCarou] = useState(2);
     const APIDETAILS = 'https://api.themoviedb.org/3/movie/' + movieId + '?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US';
     const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
     const BASEURL = 'https://api.themoviedb.org/3/collection/';
     const APIKEY = '?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US';
     const [moviesDetails, setMoviesDetails] = useState([]);
     const [movieCollection, setMovieCollection] = useState([]);
+    
+    function checkResize() {
+        if(window.innerWidth >= 760) {
+            setItemToShowCarou(3);
+        }
+    }
+
+    window.addEventListener('resize', () => {
+        checkResize();
+    })
   
     const fetchMoviesDetails = async () =>  {
         try {
@@ -45,13 +56,13 @@ const Detail = () => {
     }
     useEffect(async() => {
         await fetchMoviesDetails();
+        checkResize()
     }, []);
 
     useEffect(async() => {
         await getchMovieCollection();
     }, [collectionId]);
 
-    console.log(movieCollection);
     if(moviesDetails.length !== 0) { 
         return (
             <main>
@@ -74,10 +85,10 @@ const Detail = () => {
             <div className="wallpaper"
             style=
             {{
-                backgroundImage: `url('${IMGPATH + moviesDetails.poster_path}')`
+                backgroundImage: `url('${IMGPATH + moviesDetails.backdrop_path}')`
             }}
             >
-                <NavLink to="#"><IconContext.Provider value={ icons }><BsFillPlayFill /></IconContext.Provider></NavLink>
+                <IconContext.Provider value={ icons }><BsFillPlayFill /></IconContext.Provider>
                 <NavLink to="/home"><IconContext.Provider value={ iconsBack }><BiArrowFromRight /></IconContext.Provider></NavLink>
             </div>
             </>
@@ -226,7 +237,7 @@ const Detail = () => {
                 <>
                 <p className="moreMovieTitle">Related Movies</p>
                 <Carousel
-                    itemsToShow={2}
+                    itemsToShow={itemToShowCarou}
                     showArrows={false}
                     pagination={false}
                     // outerSpacing={50}

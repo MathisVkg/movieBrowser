@@ -134,4 +134,39 @@ body {
   margin-left: 5px;
   color: #BCBCBC;
 }
+
+@media only screen and (min-width: 760px) {
+  .searchBar {
+    width: 800px;
+    padding: 25px 15px;
+  }
+  .searchBar .searchIcon {
+    margin-left: 15px;
+    font-size: 1.6em;
+  }
+  .searchBar input {
+    font-size: 1.6em;
+  }
+  .movieGenres {
+    min-height: 55px;
+  }
+  .movieGenres .genreLink {
+    margin-top: 15px;
+    font-size: 1.7em;
+  }
+  .allMovie .cardDiscover {
+    width: 250px;
+    height: 395px;
+  }
+  .allMovie .cardDiscover .widthImg {
+    height: 320px;
+  }
+  .allMovie .cardDiscover .titleDiscover {
+    font-size: 1.3em;
+  }
+  .backToTop {
+    font-size: 3em;
+    bottom: 85px;
+  }
+}
 /*# sourceMappingURL=Discover.css.map */

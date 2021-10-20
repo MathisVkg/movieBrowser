@@ -115,3 +115,42 @@ body {
         }
     }
 }
+
+
+
+@media only screen and (min-width: 760px) {
+    .searchBar {
+        width: 800px;
+        padding: 25px 15px;
+        .searchIcon {
+            margin-left: 15px;
+            font-size: 1.6em;
+        }
+        input {
+            font-size: 1.6em;
+        }
+    }
+    .movieGenres {
+        min-height: 55px;
+        .genreLink {
+            margin-top: 15px;
+            font-size: 1.7em;
+        }
+    }
+    .allMovie {
+        .cardDiscover {
+            width: 250px;
+            height: 395px;
+            .widthImg {
+                height: 320px;
+            }
+            .titleDiscover {
+                font-size: 1.3em;
+            }
+        }
+    }
+    .backToTop {
+        font-size: 3em;
+        bottom: 85px;
+    }
+}

@@ -13,7 +13,9 @@ const Home = (props) => {
     const APIURLTRENDING = 'https://api.themoviedb.org/3/trending/movie/day?api_key=59d266ad02d1642bf64bc31fb887924c';
     const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
     const [moviesTrending, setMoviesTrending] = useState([]);
-  
+    const [itemToShowCarou, setItemToShowCarou] = useState(1);
+    let randomMovie;
+    
     const fetchMoviesTrending = async () =>  {
         try {
         const response = await fetch(APIURLTRENDING);
@@ -25,8 +27,18 @@ const Home = (props) => {
     }
     useEffect(() => {
         fetchMoviesTrending();
+        checkResize();
     }, []);
 
+    function checkResize() {
+        if(window.innerWidth >= 760) {
+            setItemToShowCarou(3);
+        }
+    }
+
+    window.addEventListener('resize', () => {
+        checkResize();
+    })
 
     if (moviesTrending.length !== 0) {
         return (
@@ -45,7 +57,7 @@ const Home = (props) => {
 
 
     function RandomCard() {
-        let randomMovie = Math.floor(Math.random() * 20);
+        randomMovie = Math.floor(Math.random() * 20);
         return (
             <>
                 <NavLink to={`/detail/${ moviesTrending[randomMovie].id }`}>
@@ -53,7 +65,7 @@ const Home = (props) => {
                     id={ moviesTrending[randomMovie].id }
                     style=
                         {{
-                            backgroundImage: `url('${ IMGPATH + moviesTrending[randomMovie].poster_path }')`
+                            backgroundImage: `url('${ IMGPATH + moviesTrending[randomMovie].backdrop_path }')`
                         }}
                     >
                         <div className="spotlightGroup">
@@ -74,14 +86,14 @@ const Home = (props) => {
             <>
                 <h2 className="subTitle">Trending</h2>
                 <Carousel
-                    itemsToShow={1}
+                    itemsToShow={itemToShowCarou}
                     showArrows={false}
                     pagination={false}
                     // outerSpacing={50}
                     // itemPadding={[0, 150]}
                     className="movieList" >
                     {
-                        moviesTrending.map((movie, value) => {
+                        moviesTrending.filter(movie => movie.id !== moviesTrending[randomMovie].id).map((movie) => {
                             return (
                                 <NavLink to={`/detail/${ movie.id }`} key={movie.id}>
                                     <div className="card"

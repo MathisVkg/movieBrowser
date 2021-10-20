@@ -141,4 +141,57 @@ body {
   top: 230px;
   text-shadow: 2px 2px 6px #161624;
 }
+
+@media only screen and (min-width: 760px) {
+  .pageTitle {
+    font-size: 3.5em;
+    margin-left: 50px;
+  }
+  .containerSpotlight {
+    height: 400px;
+    background-position: center;
+  }
+  .containerSpotlight .spotlightGroup {
+    padding-right: 30px;
+    backdrop-filter: unset;
+    height: 120px;
+  }
+  .containerSpotlight .spotlightGroup .playIcon {
+    margin-left: 20px;
+    font-size: 4.2em;
+  }
+  .containerSpotlight .spotlightGroup .textDiv p {
+    font-size: 2em;
+  }
+  .containerSpotlight .spotlightGroup .textDiv h2 {
+    font-size: 2em;
+  }
+  .subTitle {
+    font-size: 2.8em;
+    margin-left: 50px;
+  }
+  .movieList .card {
+    width: 280px;
+    height: 600px;
+    background-position: center;
+  }
+  .movieList .card .rateGroup {
+    backdrop-filter: unset;
+    width: 115px;
+    left: 570px;
+  }
+  .movieList .card .rateGroup .rateIcon {
+    font-size: 2.6em;
+  }
+  .movieList .card .rateGroup .rate {
+    font-size: 1.9em;
+  }
+  .movieList .card .title {
+    top: 405px;
+    margin-left: 15px;
+    width: 90%;
+    font-size: 1.7em;
+    backdrop-filter: unset;
+  }
+}
 /*# sourceMappingURL=Home.css.map */
