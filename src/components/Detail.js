@@ -8,13 +8,14 @@ import '../assets/scss/Detail.css';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import Carousel from 'react-elastic-carousel';
 
 const Detail = () => {
     let iconsBack = { className: 'backBtn' };
     let icons = { className: 'playBtn' };
     const {movieId} = useParams();
     const [readMore, setReadMore] = useState(false);
-    const [collectionId, setCollectionId] = useState('');
+    const [collectionId, setCollectionId] = useState();
     const APIDETAILS = 'https://api.themoviedb.org/3/movie/' + movieId + '?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US';
     const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
     const BASEURL = 'https://api.themoviedb.org/3/collection/';
@@ -27,21 +28,11 @@ const Detail = () => {
         const response = await fetch(APIDETAILS);
         const moviesData = await response.json();
         setMoviesDetails(moviesData);
-        // setTimeout(() => {
-        //     if(moviesData.length !== 0) {
-        //         setCollectionId(moviesData.belongs_to_collection.id);
-        //         console.log('setCollectionId: ', collectionId);
-        //     } else {
-        //         return;
-        //     }
-        // }, 1000);
+        setCollectionId(moviesData.belongs_to_collection.id);
         } catch (error) {
         console.log(error);
         }
     }
-    useEffect(() => {
-        fetchMoviesDetails();
-    }, []);
 
     const getchMovieCollection = async () =>  {
         try {
@@ -52,12 +43,15 @@ const Detail = () => {
         console.log(error);
         }
     }
-    useEffect(() => {
-        // getchMovieCollection();
+    useEffect(async() => {
+        await fetchMoviesDetails();
     }, []);
 
-    console.log('1',moviesDetails);
-    // console.log('2',movieCollection);
+    useEffect(async() => {
+        await getchMovieCollection();
+    }, [collectionId]);
+
+    console.log(movieCollection);
     if(moviesDetails.length !== 0) { 
         return (
             <main>
@@ -65,7 +59,7 @@ const Detail = () => {
                 <BaseInfo />
                 <MoreInfo />
                 <Description />
-                {/* <MoreMovie /> */}
+                <MoreMovie />
             </main>
         )
     } else {
@@ -130,7 +124,13 @@ const Detail = () => {
                 <div className="genreGroup">
                     <p className="genre">Genre</p>
                     <div className="genreBlur">
-                        { getGenres() }
+                        {
+                            moviesDetails.genres.map((genre) => {
+                                return (
+                                    <p className="genreText" key={ genre.id }>{ genre.name }</p> 
+                                );
+                            })
+                        }
                     </div>
                 </div>
             </div>
@@ -139,55 +139,45 @@ const Detail = () => {
         );
     }
 
-    function getGenres() {
-        for(let i = 0; i < moviesDetails.genres.length; i++){
-            return (
-                <>
-                <p className="genreText">{ moviesDetails.genres[i].name }</p>
-                </>
-            );
-        }
-    }
-
     function switchMonth() {
         const date = moviesDetails.release_date.substring(5, 7);
         switch (date) {
             case '01':
                 return 'January ';
-              break;
+                break;
             case '02':
                 return 'February ';
                 break;
             case '03':
                 return 'March ';
-              break;
+                break;
             case '04':
                 return 'April ';
-              break;
+                break;
             case '05':
                 return 'May ';
-              break;
+                break;
             case '06':
                 return 'June ';
-              break;
+                break;
             case '07':
                 return 'July ';
-              break;
+                break;
             case '08':
                 return 'August ';
-              break;
+                break;
             case '09':
                 return 'September ';
-              break;
+                break;
             case '10':
                 return 'October ';
-              break;
+                break;
             case '11':
                 return 'November ';
-              break;
+                break;
             case '12':
                 return 'December ';
-              break;
+                break;
             default:
               return 'missing date';
           }
@@ -199,41 +189,62 @@ const Detail = () => {
             <>
             <div className="desGroup">
                 <h2 className="desTitle">Synopsis</h2>
-                <p className="desText">{ readMore ? overview: `${ overview.substring(0,200) }` }
-                    <button 
-                    className="readMoreBtn" 
-                    onClick={ () => setReadMore(!readMore) }>{ readMore ? 'Show less' :'Readmore..' }
-                    </button>
+                <p className="desText">{ readMore ? overview : `${ overview.substring(0,200) }` }
+                { buttonReadmore(overview) }
                 </p>
             </div>
             </>
         );
     }
+
+    function buttonReadmore(overview) {
+        if(overview.length > 200) {
+            return (
+                <button 
+                className="readMoreBtn" 
+                onClick={ () => setReadMore(!readMore) }>{ readMore ? 'Show less' :'Readmore..' }
+                </button>
+            )
+        } else {
+            return;
+        }
+    }
+
     function MoreMovie() {
         return (
             <>
-            <div className="moreMovie">
-                <p className="moreMovieTitle">Related Movies</p>
-                    <div className="movieCard">
-                        <img src={ checkCollection() } className="movieImg" />
-                        <p className="movieTitle">{ moviesDetails.belongs_to_collection.name }</p>
-                    </div>
-            </div>
+            <>{ RelatedCarousel() }</>
             </>
         );
     }
 
-    function checkCollection() {
-        if( moviesDetails.belongs_to_collection.poster_path == null) {
-            return (
-                <>
-                <img src="" className="movieImg" />
-                </>
-            );
+    function RelatedCarousel() {
+        if(movieCollection.success == false) {
+            return;
         } else {
             return (
                 <>
-                <img src={ IMGPATH + moviesDetails.belongs_to_collection.poster_path } className="movieImg" />
+                <p className="moreMovieTitle">Related Movies</p>
+                <Carousel
+                    itemsToShow={2}
+                    showArrows={false}
+                    pagination={false}
+                    // outerSpacing={50}
+                    // itemPadding={[0, 150]}
+                    className="movieMoreList" >
+                            {
+                                movieCollection.parts?.map((movieMore) => {
+                                    return (
+                                        <div className="movieMoreCard" key={ movieMore.id }>
+                                            <div>
+                                                <img className="movieImg" src={ IMGPATH + movieMore.poster_path }/>
+                                            </div>
+                                            <p className="movieTitle">{ movieMore.title }</p>
+                                        </div>
+                                    );
+                                })
+                            }
+                    </Carousel>
                 </>
             );
         }

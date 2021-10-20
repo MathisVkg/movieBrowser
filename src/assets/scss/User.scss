@@ -1,83 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
 
-@media only screen and (max-width: 500px) {
-    body {
-        margin: 0;
-        background-color: #15141F;
-        color: white;
-        font-family: 'Lato', sans-serif;
-    }
-    .container {
-        .circularGroup {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+body {
+    margin: 0;
+    background-color: #15141F;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+.container {
+    .circularGroup {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 10px;
+        .circularBarText {
+            font-size: 0.8em;
+            margin-left: 10px;
+            margin-top: 30px;
+            width: 80px;
+        }
+        .CircularProgressbar {
             margin-top: 10px;
-            .circularBarText {
-                font-size: 0.8em;
-                margin-left: 10px;
-                margin-top: 30px;
-                width: 80px;
+            width: 35%;
+            .CircularProgressbar-text {
+                font-size: 25px;
+                fill: white;
+                font-weight: 700;
             }
-            .CircularProgressbar {
-                margin-top: 10px;
-                width: 35%;
-                .CircularProgressbar-text {
-                    font-size: 25px;
-                    fill: white;
-                    font-weight: 700;
-                }
-                .CircularProgressbar-background {
-                    fill: #23222c;
-                }
-                .CircularProgressbar-path {
-                    stroke: #21b635;
-                }
-                .CircularProgressbar-trail {
-                    stroke: #21b63546;
-                }
+            .CircularProgressbar-background {
+                fill: #23222c;
+            }
+            .CircularProgressbar-path {
+                stroke: #21b635;
+            }
+            .CircularProgressbar-trail {
+                stroke: #21b63546;
             }
         }
-        img {
-            margin: 25px;
-            margin-bottom: 0;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 20px;
-        }
+    }
+    img {
+        margin: 25px;
+        margin-bottom: 0;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    div {
+        display: flex;
         div {
             display: flex;
-            div {
-                display: flex;
-                flex-direction: column;
-                .name {
-                    margin-top: 35px;
-                    margin-bottom: 0;
-                    font-size: 1.4em;
-                }
-                .lastname {
-                    margin-top: 5px;
-                    font-size: 1.4em;
-                    margin-bottom: 0;
-                }
-                .pseudo {
-                    margin-top: 5px;
-                    font-size: 0.9em;
-                    font-weight: 700;
-                }
+            flex-direction: column;
+            .name {
+                margin-top: 35px;
+                margin-bottom: 0;
+                font-size: 1.4em;
+            }
+            .lastname {
+                margin-top: 5px;
+                font-size: 1.4em;
+                margin-bottom: 0;
+            }
+            .pseudo {
+                margin-top: 5px;
+                font-size: 0.9em;
+                font-weight: 700;
             }
         }
-        .desTitle {
-            font-size: 1.1em;
-            margin: 25px 0 0 30px;
-        }
-        .description {
-            margin-top: 5px;
-            margin-left: 30px;
-            font-size: 1em;
-            width: 300px;
-            color: #BCBCBC;
-        }
+    }
+    .desTitle {
+        font-size: 1.1em;
+        margin: 25px 0 0 30px;
+    }
+    .description {
+        margin-top: 5px;
+        margin-left: 30px;
+        font-size: 1em;
+        width: 300px;
+        color: #BCBCBC;
     }
 }

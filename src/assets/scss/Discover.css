@@ -1,118 +1,137 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap");
-@media only screen and (max-width: 500px) {
-  body {
-    margin: 0;
-    background-color: #15141F;
-    color: white;
-    font-family: 'Lato', sans-serif;
-  }
-  .backToTop {
-    position: fixed;
-    bottom: 70px;
-    right: 25px;
-    font-size: 1.4em;
-    background-color: #15141F;
-    border-radius: 50%;
-    padding: 4px;
-  }
-  .pageTitle {
-    margin-top: 25px;
-    margin-left: 25px;
-    font-size: 2em;
-    color: #f57e2f;
-  }
-  .titleColor {
-    color: white;
-  }
-  .searchBar {
-    margin: 25px auto;
-    background-color: #211F30;
-    padding: 15px;
-    border-radius: 20px;
-    width: 300px;
-  }
-  .searchBar .searchIcon {
-    margin-left: 6px;
-    font-size: 1.1em;
-  }
-  .searchBar input {
-    border: none;
-    background-color: unset;
-    margin-left: 15px;
-    color: #BBBBBB;
-  }
-  .movieGenres {
-    display: flex;
-    overflow: scroll;
-    margin-bottom: 10px;
-    min-height: 24px;
-    margin-left: 15px;
-    scrollbar-width: none;
-  }
-  .movieGenres::-webkit-scrollbar {
-    display: none;
-  }
-  .movieGenres .genreLink {
-    text-decoration: none;
-    color: white;
-    margin: 0 6px;
-    padding: 0 15px;
-    cursor: pointer;
-    transition: 0.4s ease-in-out;
-  }
-  .movieGenres .genreLink:hover {
-    color: #f57e2f;
-  }
-  .movieGenres .genreLink:after {
-    display: block;
-    content: '';
-    width: 0px;
-    height: 2px;
-    margin-top: 2px;
-    background: transparent;
-    transition: width 0.5s ease, background-color 0.5s ease;
-  }
-  .movieGenres .genreLink:hover:after {
-    width: 100%;
-    background: #f57e2f;
-  }
-  .allMovie {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 50px;
-  }
-  .allMovie a {
-    text-decoration: none;
-    color: white;
-  }
-  .allMovie .cardDiscover {
-    margin: 10px 12px;
-    width: 150px;
-    transition: 0.4s ease-in-out;
-  }
-  .allMovie .cardDiscover:hover {
-    transform: translateY(-5px);
-  }
-  .allMovie .cardDiscover:hover .titleDiscover {
-    color: #f57e2f;
-  }
-  .allMovie .cardDiscover .widthImg {
-    height: 220px;
-  }
-  .allMovie .cardDiscover img {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    margin-bottom: 0;
-  }
-  .allMovie .cardDiscover .titleDiscover {
-    transition: 0.4s ease-in-out;
-    margin-top: 5px;
-  }
-  .allMovie .cardDiscover .dateColor {
-    margin-left: 5px;
-    color: #BCBCBC;
-  }
+body {
+  margin: 0;
+  background-color: #15141F;
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+.backToTop {
+  position: fixed;
+  bottom: 70px;
+  right: 25px;
+  font-size: 1.4em;
+  background-color: #15141F;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.pageTitle {
+  margin-top: 25px;
+  margin-left: 25px;
+  font-size: 2em;
+  color: #f57e2f;
+}
+
+.titleColor {
+  color: white;
+}
+
+.searchBar {
+  margin: 25px auto;
+  background-color: #211F30;
+  padding: 15px;
+  border-radius: 20px;
+  width: 300px;
+}
+
+.searchBar .searchIcon {
+  margin-left: 6px;
+  font-size: 1.1em;
+}
+
+.searchBar input {
+  border: none;
+  background-color: unset;
+  margin-left: 15px;
+  color: #BBBBBB;
+}
+
+.movieGenres {
+  display: flex;
+  overflow: scroll;
+  margin-bottom: 10px;
+  min-height: 24px;
+  margin-left: 15px;
+  scrollbar-width: none;
+}
+
+.movieGenres::-webkit-scrollbar {
+  display: none;
+}
+
+.movieGenres .genreLink {
+  text-decoration: none;
+  color: white;
+  margin: 0 6px;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.movieGenres .genreLink:hover {
+  color: #f57e2f;
+}
+
+.movieGenres .genreLink:after {
+  display: block;
+  content: '';
+  width: 0px;
+  height: 2px;
+  margin-top: 2px;
+  background: transparent;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.movieGenres .genreLink:hover:after {
+  width: 100%;
+  background: #f57e2f;
+}
+
+.allMovie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.allMovie a {
+  text-decoration: none;
+  color: white;
+}
+
+.allMovie .cardDiscover {
+  margin: 10px 12px;
+  width: 150px;
+  transition: 0.4s ease-in-out;
+}
+
+.allMovie .cardDiscover:hover {
+  transform: translateY(-5px);
+}
+
+.allMovie .cardDiscover:hover .titleDiscover {
+  color: #f57e2f;
+}
+
+.allMovie .cardDiscover .widthImg {
+  height: 220px;
+}
+
+.allMovie .cardDiscover img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  margin-bottom: 0;
+}
+
+.allMovie .cardDiscover .titleDiscover {
+  transition: 0.4s ease-in-out;
+  margin-top: 5px;
+}
+
+.allMovie .cardDiscover .dateColor {
+  margin-left: 5px;
+  color: #BCBCBC;
 }
 /*# sourceMappingURL=Discover.css.map */

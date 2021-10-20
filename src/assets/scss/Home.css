@@ -1,129 +1,144 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap");
-@media only screen and (max-width: 500px) {
-  body {
-    margin: 0;
-    background-color: #15141F;
-    color: white;
-    font-family: 'Lato', sans-serif;
-  }
-  .pageTitle {
-    margin-top: 25px;
-    margin-left: 25px;
-    font-size: 2em;
-    color: #f57e2f;
-  }
-  .titleColor {
-    color: white;
-  }
-  .containerSpotlight {
-    width: 90%;
-    height: 200px;
-    margin: 0 auto;
-    border-radius: 20px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    transition: 0.4s ease-in-out;
-    position: relative;
-  }
-  .containerSpotlight:hover {
-    transform: translateY(-8px);
-  }
-  .containerSpotlight a {
-    text-decoration: none;
-    color: white;
-  }
-  .containerSpotlight .spotlightGroup {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    background: rgba(122, 122, 122, 0.6);
-    backdrop-filter: blur(8px);
-    border-radius: 12px;
-    border: 1px solid #ffffff2e;
-    height: 60px;
-    left: 20px;
-    bottom: 20px;
-    padding-right: 15px;
-  }
-  .containerSpotlight .spotlightGroup .playIcon {
-    margin-top: 6px;
-    margin-left: 10px;
-    font-size: 2em;
-    color: #f57e2f;
-  }
-  .containerSpotlight .spotlightGroup .textDiv {
-    margin-left: 20px;
-  }
-  .containerSpotlight .spotlightGroup .textDiv p {
-    margin-bottom: 0;
-    color: #2b2929;
-    font-weight: 400;
-    font-size: 0.9em;
-    text-shadow: 2px 1px 6px #f3f3f3;
-  }
-  .containerSpotlight .spotlightGroup .textDiv h2 {
-    width: 130%;
-    font-size: 1.1em;
-    font-weight: 700;
-    margin-top: 0;
-    text-shadow: 3px 3px 6px #1a1919;
-  }
-  .subTitle {
-    margin-top: 35px;
-    margin-left: 25px;
-    margin-bottom: 5px;
-  }
-  .movieList a {
-    text-decoration: none;
-  }
-  .movieList .card {
-    display: inline-block;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    border-radius: 20px;
-    width: 90%;
-    height: 360px;
-    padding: 10px;
-    margin: 10px;
-  }
-  .movieList .card .rateGroup {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(122, 122, 122, 0.6);
-    backdrop-filter: blur(8px);
-    border-radius: 12px;
-    border: 1px solid #ffffff2e;
-    width: 65px;
-    height: 50px;
-    top: 10px;
-    left: 190px;
-  }
-  .movieList .card .rateGroup .rate {
-    color: white;
-    font-size: 1.1em;
-  }
-  .movieList .card .rateGroup .rateIcon {
-    margin-top: 6px;
-    margin-right: 5px;
-    color: #F3BE00;
-    font-size: 1.4em;
-  }
-  .movieList .card .title {
-    text-align: center;
-    position: relative;
-    color: #ffffff;
-    background: rgba(122, 122, 122, 0.6);
-    backdrop-filter: blur(8px);
-    border-radius: 12px;
-    border: 1px solid #ffffff2e;
-    width: 245px;
-    padding: 20px 0;
-    top: 230px;
-    text-shadow: 2px 2px 6px #161624;
-  }
+body {
+  margin: 0;
+  background-color: #15141F;
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+.pageTitle {
+  margin-top: 25px;
+  margin-left: 25px;
+  font-size: 2em;
+  color: #f57e2f;
+}
+
+.titleColor {
+  color: white;
+}
+
+.containerSpotlight {
+  width: 90%;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  transition: 0.4s ease-in-out;
+  position: relative;
+}
+
+.containerSpotlight:hover {
+  transform: translateY(-8px);
+}
+
+.containerSpotlight a {
+  text-decoration: none;
+  color: white;
+}
+
+.containerSpotlight .spotlightGroup {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  background: rgba(122, 122, 122, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid #ffffff2e;
+  height: 60px;
+  left: 20px;
+  bottom: 20px;
+  padding-right: 15px;
+}
+
+.containerSpotlight .spotlightGroup .playIcon {
+  margin-top: 6px;
+  margin-left: 10px;
+  font-size: 2em;
+  color: #f57e2f;
+}
+
+.containerSpotlight .spotlightGroup .textDiv {
+  margin-left: 20px;
+}
+
+.containerSpotlight .spotlightGroup .textDiv p {
+  margin-bottom: 0;
+  color: #2b2929;
+  font-weight: 400;
+  font-size: 0.9em;
+  text-shadow: 2px 1px 6px #f3f3f3;
+}
+
+.containerSpotlight .spotlightGroup .textDiv h2 {
+  width: 130%;
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-top: 0;
+  text-shadow: 3px 3px 6px #1a1919;
+}
+
+.subTitle {
+  margin-top: 35px;
+  margin-left: 25px;
+  margin-bottom: 5px;
+}
+
+.movieList a {
+  text-decoration: none;
+}
+
+.movieList .card {
+  display: inline-block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  border-radius: 20px;
+  width: 90%;
+  height: 360px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.movieList .card .rateGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(122, 122, 122, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid #ffffff2e;
+  width: 65px;
+  height: 50px;
+  top: 10px;
+  left: 190px;
+}
+
+.movieList .card .rateGroup .rate {
+  color: white;
+  font-size: 1.1em;
+}
+
+.movieList .card .rateGroup .rateIcon {
+  margin-top: 6px;
+  margin-right: 5px;
+  color: #F3BE00;
+  font-size: 1.4em;
+}
+
+.movieList .card .title {
+  text-align: center;
+  position: relative;
+  color: #ffffff;
+  background: rgba(122, 122, 122, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid #ffffff2e;
+  width: 245px;
+  padding: 20px 0;
+  top: 230px;
+  text-shadow: 2px 2px 6px #161624;
 }
 /*# sourceMappingURL=Home.css.map */

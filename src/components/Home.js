@@ -78,7 +78,7 @@ const Home = (props) => {
                     showArrows={false}
                     pagination={false}
                     // outerSpacing={50}
-                    // itemPadding={[0, 155]}
+                    // itemPadding={[0, 150]}
                     className="movieList" >
                     {
                         moviesTrending.map((movie, value) => {

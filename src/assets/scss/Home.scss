@@ -1,131 +1,129 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
 
-@media only screen and (max-width: 500px) {
-    body {
-        margin: 0;
-        background-color: #15141F;
+body {
+    margin: 0;
+    background-color: #15141F;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+.pageTitle {
+    margin-top: 25px;
+    margin-left: 25px;
+    font-size: 2em;
+    color: #f57e2f;
+}
+.titleColor {
+    color: white;
+}
+.containerSpotlight {
+    width: 90%;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    transition: 0.4s ease-in-out;
+    position: relative;
+    &:hover {
+        transform: translateY(-8px);
+    }
+    a {
+        text-decoration: none;
         color: white;
-        font-family: 'Lato', sans-serif;
     }
-    .pageTitle {
-        margin-top: 25px;
-        margin-left: 25px;
-        font-size: 2em;
-        color: #f57e2f;
+    .spotlightGroup {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        background: hsla(0, 0%, 48%, 0.6);
+        backdrop-filter: blur(8px);
+        border-radius: 12px;
+        border: 1px solid #ffffff2e;
+        height: 60px;
+        left: 20px;
+        bottom: 20px; 
+        padding-right: 15px;
+        .playIcon {
+            margin-top: 6px;
+            margin-left: 10px;
+            font-size: 2em;
+            color: #f57e2f;
+        }
+        .textDiv {
+            margin-left: 20px;
+            p {
+                margin-bottom: 0;
+                color: #2b2929;
+                font-weight: 400;
+                font-size: 0.9em;
+                text-shadow: 2px 1px 6px #f3f3f3;
+            }
+            h2 {
+                width: 130%;
+                font-size: 1.1em;
+                font-weight: 700;
+                margin-top: 0;
+                text-shadow: 3px 3px 6px #1a1919;
+            }
+        }
     }
-    .titleColor {
-        color: white;
+}
+.subTitle {
+    margin-top: 35px;
+    margin-left: 25px;
+    margin-bottom: 5px;
+}
+.movieList {
+    a {
+        text-decoration: none;
     }
-    .containerSpotlight {
-        width: 90%;
-        height: 200px;
-        margin: 0 auto;
-        border-radius: 20px;
+    .card {
+        display: inline-block;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top;
-        transition: 0.4s ease-in-out;
-        position: relative;
-        &:hover {
-            transform: translateY(-8px);
-        }
-        a {
-            text-decoration: none;
-            color: white;
-        }
-        .spotlightGroup {
+        border-radius: 20px;
+        width: 90%;
+        height: 360px;
+        padding: 10px;
+        margin: 10px;
+        .rateGroup {
+            position: relative;
             display: flex;
             align-items: center;
-            position: absolute;
+            justify-content: center;
             background: hsla(0, 0%, 48%, 0.6);
             backdrop-filter: blur(8px);
             border-radius: 12px;
             border: 1px solid #ffffff2e;
-            height: 60px;
-            left: 20px;
-            bottom: 20px; 
-            padding-right: 15px;
-            .playIcon {
-                margin-top: 6px;
-                margin-left: 10px;
-                font-size: 2em;
-                color: #f57e2f;
-            }
-            .textDiv {
-                margin-left: 20px;
-                p {
-                    margin-bottom: 0;
-                    color: #2b2929;
-                    font-weight: 400;
-                    font-size: 0.9em;
-                    text-shadow: 2px 1px 6px #f3f3f3;
-                }
-                h2 {
-                    width: 130%;
-                    font-size: 1.1em;
-                    font-weight: 700;
-                    margin-top: 0;
-                    text-shadow: 3px 3px 6px #1a1919;
-                }
-            }
+            width: 65px;
+            height: 50px;
+            top: 10px;
+            left: 190px;
+            .rate {
+            color: white;
+            font-size: 1.1em;
         }
-    }
-    .subTitle {
-        margin-top: 35px;
-        margin-left: 25px;
-        margin-bottom: 5px;
-    }
-    .movieList {
-        a {
-            text-decoration: none;
+        .rateIcon {
+            margin-top: 6px;
+            margin-right: 5px;
+            color: #F3BE00;
+            font-size: 1.4em;
         }
-        .card {
-            display: inline-block;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: top;
-            border-radius: 20px;
-            width: 90%;
-            height: 360px;
-            padding: 10px;
-            margin: 10px;
-            .rateGroup {
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: hsla(0, 0%, 48%, 0.6);
-                backdrop-filter: blur(8px);
-                border-radius: 12px;
-                border: 1px solid #ffffff2e;
-                width: 65px;
-                height: 50px;
-                top: 10px;
-                left: 190px;
-                .rate {
-                color: white;
-                font-size: 1.1em;
-            }
-            .rateIcon {
-                margin-top: 6px;
-                margin-right: 5px;
-                color: #F3BE00;
-                font-size: 1.4em;
-            }
-            }
-            .title {
-                text-align: center;
-                position: relative;
-                color: #ffffff;
-                background: hsla(0, 0%, 48%, 0.6);
-                backdrop-filter: blur(8px);
-                border-radius: 12px;
-                border: 1px solid #ffffff2e;
-                width: 245px;
-                padding: 20px 0;
-                top: 230px;
-                text-shadow: 2px 2px 6px #161624;
-            }
+        }
+        .title {
+            text-align: center;
+            position: relative;
+            color: #ffffff;
+            background: hsla(0, 0%, 48%, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            border: 1px solid #ffffff2e;
+            width: 245px;
+            padding: 20px 0;
+            top: 230px;
+            text-shadow: 2px 2px 6px #161624;
         }
     }
 }

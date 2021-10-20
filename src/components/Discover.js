@@ -26,7 +26,7 @@ const Discover = () => {
     const BASESEARCH = 'https://api.themoviedb.org/3/search/movie?api_key=59d266ad02d1642bf64bc31fb887924c&language=en-US&query=';
     const SEARCHPARAMS = '&page=1&include_adult=false'
     const [inputValue, setInputValue] = useState('');
-    console.log('inputValue: ', inputValue);
+    // console.log('inputValue: ', inputValue);
 
 
     const fetchMovies = async () =>  {
@@ -39,6 +39,8 @@ const Discover = () => {
       }
     }
     useEffect(() => {
+      setMovies([]);
+      setPage(1);
       fetchMovies();
     }, [genre]);
 
@@ -108,10 +110,11 @@ const Discover = () => {
             <h1 className="pageTitle">Movie<span className="titleColor" id="top">Browser</span></h1>
             <div className="searchBar">
                 <span className="searchIcon"><FaSearch /></span>
-                <input type="text" placeholder="Sherlock Holmes" onKeyPress=
+                <input type="text" placeholder="Sherlock Holmes" onChange=
                 { 
                     event => setInputValue(event.target.value)
                 }
+                value={ inputValue }
                 ></input>
             </div>
             </>
@@ -145,7 +148,6 @@ const Discover = () => {
         e.preventDefault();
         e.target.style.color = '#f57e2f';
         setGenre(e.target.id);
-        setMovies([]);
     }
 
     function AllMovieCard() {
@@ -154,9 +156,8 @@ const Discover = () => {
             <div className="allMovie">
                 {
                     movies.map((movie) => {
-
                         return (
-                            <NavLink to={`/detail/${ movie.id }`} id={ movie.id }>
+                            <NavLink to={`/detail/${ movie.id }`} id={ movie.id } key={ movie.id }>
                                 <div className="cardDiscover">
                                     <div className="widthImg"><img src={IMGPATH + movie.poster_path} alt={ IMGPATH + movie.title } /></div>
                                     <p className="titleDiscover">
