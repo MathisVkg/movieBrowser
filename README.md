@@ -26,5 +26,4 @@ You can see the project with this link to the github page.
 * [Gitbash] - GUI Clients
 * [JavaScript] - Js
 * [React] - React
-* [JSX]
-* [NPM]
+
