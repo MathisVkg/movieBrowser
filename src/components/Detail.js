@@ -4,7 +4,7 @@ import { BiArrowFromRight } from 'react-icons/bi';
 import { BiTime } from 'react-icons/bi';
 import { AiFillStar } from 'react-icons/ai';
 import Loader from '../components/Loader';
-import '../assets/scss/Detail.css';
+import '../assets/css/Detail.css';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';

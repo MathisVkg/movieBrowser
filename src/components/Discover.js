@@ -1,6 +1,6 @@
 import { FaSearch } from 'react-icons/fa';
-import '../assets/scss/Discover.css';
-import '../assets/scss/Base.css';
+import '../assets/css/Discover.css';
+import '../assets/css/Base.css';
 import Loader from '../components/Loader';
 import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar';

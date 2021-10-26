@@ -1,5 +1,5 @@
 import React from 'react'
-import '../assets/scss/Base.css';
+import '../assets/css/Base.css';
 
 const Loader = () => {
     return (

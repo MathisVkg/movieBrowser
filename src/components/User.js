@@ -1,5 +1,5 @@
 import NavBar from './NavBar';
-import '../assets/scss/User.css';
+import '../assets/css/User.css';
 import React, { useEffect, useState } from 'react';
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";

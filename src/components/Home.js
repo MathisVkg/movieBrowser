@@ -1,5 +1,5 @@
-import '../assets/scss/Home.css';
-import '../assets/scss/Base.css';
+import '../assets/css/Home.css';
+import '../assets/css/Base.css';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
 import Carousel from 'react-elastic-carousel';
