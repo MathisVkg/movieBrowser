@@ -5,7 +5,7 @@ You can see on the Home page, a list of movie in actual trending and a carousel.
 
 
 - **Project:** React App calling API MovieDB".
-- **Structure of website:** Multi-page responsive website (for mobile and ipad (desktop in progress)). Each page present one thing.
+- **Structure of web app:** Multi-page responsive website (for mobile and ipad (desktop in progress)). Each page present one thing.
                             <br>-accessible pages: Home page, Discover page and Details page.
 
 ## Project
